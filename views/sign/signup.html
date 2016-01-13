@@ -5,7 +5,7 @@
     <div class='header'>
       <ul class='breadcrumb'>
         <li><a href='/'>Home</a><span class='divider'>/</span></li>
-        <li class='active'>注册</li>
+        <li class='active'>Registrar</li>
       </ul>
     </div>
     <div class='inner'>
@@ -22,7 +22,7 @@
       <% } else { %>
       <form id='signup_form' class='form-horizontal' action='/signup' method='post'>
         <div class='control-group'>
-          <label class='control-label' for='loginname'>用户名</label>
+          <label class='control-label' for='loginname'>Nome de usuário</label>
 
           <div class='controls'>
             <% if (typeof(loginname) !== 'undefined') { %>
@@ -33,21 +33,21 @@
           </div>
         </div>
         <div class='control-group'>
-          <label class='control-label' for='pass'>密码</label>
+          <label class='control-label' for='pass'>Senha</label>
 
           <div class='controls'>
             <input class='input-xlarge' id='pass' name='pass' size='30' type='password'/>
           </div>
         </div>
         <div class='control-group'>
-          <label class='control-label' for='re_pass'>确认密码</label>
+          <label class='control-label' for='re_pass'>Confirme a sua senha</label>
 
           <div class='controls'>
             <input class='input-xlarge' id='re_pass' name='re_pass' size='30' type='password'/>
           </div>
         </div>
         <div class='control-group'>
-          <label class='control-label' for='email'>电子邮箱</label>
+          <label class='control-label' for='email'>E-mail</label>
 
           <div class='controls'>
             <% if (typeof(email) !== 'undefined') { %>
@@ -63,7 +63,7 @@
           <input type='submit' class='span-primary' value='注册'/>
           <a href="/auth/github">
             <span class="span-info">
-              通过 GitHub 登录
+              Entrar com o Github
             </span>
           </a>
         </div>

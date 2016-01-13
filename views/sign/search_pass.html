@@ -5,7 +5,7 @@
     <div class='header'>
       <ul class='breadcrumb'>
         <li><a href='/'>Home</a><span class='divider'>/</span></li>
-        <li class='active'>找回密码</li>
+        <li class='active'>Esqueci minha senha</li>
       </ul>
     </div>
     <div class='inner'>
@@ -17,7 +17,7 @@
       <% } %>
       <form id='search_pass_form' class='form-horizontal' action='/search_pass' method='post'>
         <div class='control-group'>
-          <label class='control-label' for='email'>电子邮箱</label>
+          <label class='control-label' for='email'>E-mail</label>
 
           <div class='controls'>
             <% if (typeof(email) !== 'undefined') { %>
@@ -25,12 +25,12 @@
             <% } else { %>
             <input class='input-xlarge' id='email' name='email' size='30' type='text'/>
             <% } %>
-            <p class='help-block'>请输入您注册帐户时使用的电子邮箱</p>
+            <p class='help-block'>Por favor, insira o endereço de e-mail que você usou ao registrar a conta</p>
           </div>
           <input type='hidden' name='_csrf' value='<%= csrf %>'/>
         </div>
         <div class='form-actions'>
-          <input type='submit' class='span-primary' value='提交'/>
+          <input type='submit' class='span-primary' value='Enviar'/>
         </div>
       </form>
     </div>
