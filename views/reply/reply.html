@@ -17,7 +17,7 @@
       <span>
         <i class="fa up_btn
           <%= (current_user && is_uped(current_user, reply)) ? 'fa-thumbs-up uped' : 'fa-thumbs-o-up' %>
-          <%= (!reply.ups || !reply.ups.length) ? 'invisible' : '' %>" title="喜欢"></i>
+          <%= (!reply.ups || !reply.ups.length) ? 'invisible' : '' %>" title="curtir"></i>
         <span class="up-count">
           <%= reply.ups && reply.ups.length ? reply.ups.length : '' %>
         </span>
@@ -26,15 +26,15 @@
       (current_user && current_user._id.toString() == reply.author._id.toString())
       ) { %>
       <a href='/reply/<%= reply._id %>/edit' class='edit_reply_btn'>
-        <i class="fa fa-pencil-square-o" title='编辑'></i>
+        <i class="fa fa-pencil-square-o" title='editar'></i>
       </a>
       <a href='javascript:void(0);' class='delete_reply_btn'>
-        <i class="fa fa-trash" title='删除'></i>
+        <i class="fa fa-trash" title='deletar'></i>
       </a>
       <% } %>
       <span>
         <% if (current_user){ %>
-          <i class="fa fa-reply reply2_btn" title="回复"></i>
+          <i class="fa fa-reply reply2_btn" title="responder"></i>
         <% } %>
       </span>
     </div>
@@ -56,7 +56,7 @@
 
             <div class='editor_buttons'>
               <input class='span-primary reply2_submit_btn submit_btn'
-                     type="submit" data-id='<%= reply._id %>' data-loading-text="回复中.." value="回复">
+                     type="submit" data-id='<%= reply._id %>' data-loading-text="Repondendo.." value="Responder">
             </div>
           </div>
 
