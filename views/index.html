@@ -3,7 +3,7 @@
 <div id="content">
   <div class="panel">
     <div class="header">
-      <% [['all', '全部'], ['good', '精华']].concat(tabs).forEach(function (pair) {
+      <% [['all', 'todos'], ['good', 'bem avaliados']].concat(tabs).forEach(function (pair) {
         var value = pair[0];
         var text = pair[1]; %>
         <a href="<%= value ? '/?tab=' + value : '/' %>"
@@ -21,7 +21,7 @@
     </div>
     <% } else { %>
     <div class="inner">
-      <p>无话题</p>
+      <p>nenhum tópico</p>
     </div>
     <% } %>
   </div>
