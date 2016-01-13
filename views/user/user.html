@@ -13,20 +13,20 @@
   <div>
 		<span>
 			<a href='mailto:<%= user.email %>'>
-        <i class="fa fa-envelope-o" title='电子邮箱'></i>
+        <i class="fa fa-envelope-o" title='E-mail'></i>
       </a>
 		</span>
     <% if (user.url) { %>
 		<span>
 			<a href="<%= user.url %>" target='_blank'>
-        <i class="fa fa-home" title='个人网站'></i>
+        <i class="fa fa-home" title='Website pessoal'></i>
       </a>
 		</span>
     <% } %>
     <% if (user.weibo) { %>
 		<span>
 			<a href="<%= user.weibo %>" target='_blank'>
-        <i class="fa fa-weibo" title='微博'></i>
+        <i class="fa fa-weibo" title='Weibo'></i>
       </a>
 		</span>
     <% } %>
