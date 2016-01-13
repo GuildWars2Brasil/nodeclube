@@ -15,11 +15,11 @@
 
       <div class='user_profile'>
         <ul class='unstyled'>
-          <span class='big'><%= user.score %></span> Score
+          Score <span class='big'><%= user.score %></span>
           <% if (user.collect_topic_count) {%>
           <li>
             <a class='dark' href="/user/<%= user.loginname %>/collections" target='_blank'>
-              <span class='big collect-topic-count'><%= user.collect_topic_count %></span>tópicos favoritos
+              <span class='big collect-topic-count'><%= user.collect_topic_count %></span> tópicos favoritos
             </a>
           </li>
           <%}%>
@@ -92,7 +92,7 @@
     </div>
     <% } else { %>
     <div class='inner'>
-      <p>nenhum tópico</p>
+      <p>Nenhum tópico</p>
     </div>
     <% } %>
   </div>
@@ -108,7 +108,7 @@
     </div>
     <% } else { %>
     <div class='inner'>
-      <p>nenhum tópico</p>
+      <p>Nenhum tópico</p>
     </div>
     <% } %>
   </div>

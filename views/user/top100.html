@@ -13,17 +13,17 @@
       <table class='table table-condensed table-striped'>
         <thead>
           <th>#</th>
-          <th>用户名</th>
+          <th>Usuário</th>
           <th>Score</th>
-          <th>主题数</th>
-          <th>评论数</th>
+          <th>Tópicos</th>
+          <th>Avaliações</th>
         </thead>
         <tbody>
         <%- partial('../user/top100_user',{collection:users,as:'user'}) %>
         </tbody>
       </table>
       <% }else{ %>
-      <p>还没有用户</p>
+      <p>Não há usuários</p>
       <% } %>
     </div>
   </div>
