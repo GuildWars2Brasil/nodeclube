@@ -7,7 +7,7 @@ Nodeclub
 [![node version][node-image]][node-url]
 
 [travis-image]: https://img.shields.io/travis/cnodejs/nodeclub/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/cnodejs/nodeclub
+[travis-url]: https://travis-ci.org/GuildWars2Brasil/nodeclube
 [coverage-image]: https://img.shields.io/coveralls/cnodejs/nodeclub.svg?style=flat-square
 [coverage-url]: https://coveralls.io/r/cnodejs/nodeclub?branch=master
 [david-image]: https://img.shields.io/david/cnodejs/nodeclub.svg?style=flat-square
