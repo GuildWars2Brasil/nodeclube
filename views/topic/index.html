@@ -1,7 +1,7 @@
 <div id='sidebar'>
   <div class='panel'>
     <div class='header'>
-      <span class='col_fade'>作者</span>
+      <span class='col_fade'>Autor</span>
     </div>
     <div class='inner'>
       <%- partial('../user/card', { object: topic.author, as: 'user' }) %>
@@ -14,7 +14,7 @@
 
   <div class='panel'>
     <div class='header'>
-      <span class='col_fade'>作者其它话题</span>
+      <span class='col_fade'>Outros tópicos</span>
     </div>
     <div class='inner'>
       <% if (typeof(author_other_topics) === 'undefined' || author_other_topics.length > 0) { %>
@@ -22,14 +22,14 @@
         <%- partial('../topic/small', { collection: author_other_topics, as: 'topic' }) %>
       </ul>
       <% } else { %>
-      <p>无</p>
+      <p>Nenhum</p>
       <% } %>
     </div>
   </div>
 
   <div class='panel'>
     <div class='header'>
-      <span class='col_fade'>无人回复的话题</span>
+      <span class='col_fade'>Tópicos sem resposta</span>
     </div>
     <div class='inner'>
       <% if (typeof(no_reply_topics) !== 'undefined' && no_reply_topics.length > 0) { %>
@@ -37,7 +37,7 @@
         <%- partial('../topic/small', { collection: no_reply_topics, as: 'topic' }) %>
       </ul>
       <% } else { %>
-      <p>无</p>
+      <p>Nenhum</p>
       <% } %>
     </div>
   </div>
@@ -54,21 +54,21 @@
       </span>
       <div class="changes">
         <span>
-          发布于 <%= topic.create_at_ago() %>
+          Postado a <%= topic.create_at_ago() %>
         </span>
         <span>
-          作者 <a href="/user/<%= topic.author.loginname %>"><%= topic.author.loginname %></a>
+          Criado por <a href="/user/<%= topic.author.loginname %>"><%= topic.author.loginname %></a>
         </span>
         <span>
-          <%= topic.visit_count %> 次浏览
+          <%= topic.visit_count %> visualizações
         </span>
         <% if (topic.create_at_ago() != topic.update_at_ago()) { %>
           <span>
-            最后一次编辑是 <%= topic.update_at_ago() %>
+            A última edição foi a <%= topic.update_at_ago() %>
           </span>
         <% } %>
         <% if (topic.tab) { %>
-          <span> 来自 <%= topic.tabName %></span>
+          <span> Na aba <%= topic.tabName %></span>
         <%}%>
       </div>
       <% if (current_user) { %>
@@ -77,9 +77,9 @@
 
         <a href='/topic/<%= topic._id %>/top' data-method="post">
           <% if (topic.top) { %>
-            <i class="fa fa-lg fa-star-o" title='取消置顶'></i>
+            <i class="fa fa-lg fa-star-o" title='Desfixar'></i>
           <% } else { %>
-            <i class="fa fa-lg fa-star" title='置顶'/></i>
+            <i class="fa fa-lg fa-star" title='Fixar'/></i>
           <% } %>
         </a>
 
