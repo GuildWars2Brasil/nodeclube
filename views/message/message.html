@@ -29,10 +29,9 @@
     <% if (message.type == 'at'){ %>
 		<span>
 			<a href="/user/<%= message.author.loginname %>" target='_blank'><%= message.author.loginname %></a>
-			no tópico
+			Mencionou você no tópico
 			<a href="/topic/<%= message.topic._id + (message.reply ? '#' + message.reply._id : '') %>" target='_blank'><%=
         message.topic.title %></a>
-			中@了你
 		</span>
     <% } %>
 
