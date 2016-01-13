@@ -29,10 +29,10 @@ exports.send = function (type, author_id, master_id, topic_id) {
       };
       switch (type) {
       case 'at':
-        msg += '@了你';
+        msg += '@Você';
         break;
       case 'reply':
-        msg += '回复了你的主题';
+        msg += 'Respondeu a seu tópico';
         break;
       default:
         break;

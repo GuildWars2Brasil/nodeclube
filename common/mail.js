@@ -33,12 +33,12 @@ exports.sendMail = sendMail;
 exports.sendActiveMail = function (who, token, name) {
   var from    = util.format('%s <%s>', config.name, config.mail_opts.auth.user);
   var to      = who;
-  var subject = config.name + '社区帐号激活';
-  var html    = '<p>您好：' + name + '</p>' +
-    '<p>我们收到您在' + config.name + '社区的注册信息，请点击下面的链接来激活帐户：</p>' +
-    '<a href  = "' + SITE_ROOT_URL + '/active_account?key=' + token + '&name=' + name + '">激活链接</a>' +
-    '<p>若您没有在' + config.name + '社区填写过注册信息，说明有人滥用了您的电子邮箱，请删除此邮件，我们对给您造成的打扰感到抱歉。</p>' +
-    '<p>' + config.name + '社区 谨上。</p>';
+  var subject = config.name + 'Ativação de conta em comunidade';
+  var html    = '<p>Olá：' + name + '</p>' +
+    '<p>Seja bem vindo a comunidade. Para concluir o seu cadastro, por favor clique no link a seguir：</p>' +
+    '<a href  = "' + SITE_ROOT_URL + '/active_account?key=' + token + '&name=' + name + '">Link de ativação</a>' +
+    '<p>Caso não tenha solicitado nada em nosso site ' + config.name + ', pedimos sinceras desculpas. Porfavor apague essa mensagem.</p>' +
+    '<p>Nós, ' + config.name + ', agradecemos a sua atenção.</p>';
 
   exports.sendMail({
     from: from,
@@ -57,12 +57,12 @@ exports.sendActiveMail = function (who, token, name) {
 exports.sendResetPassMail = function (who, token, name) {
   var from = util.format('%s <%s>', config.name, config.mail_opts.auth.user);
   var to = who;
-  var subject = config.name + '社区密码重置';
-  var html = '<p>您好：' + name + '</p>' +
-    '<p>我们收到您在' + config.name + '社区重置密码的请求，请在24小时内单击下面的链接来重置密码：</p>' +
-    '<a href="' + SITE_ROOT_URL + '/reset_pass?key=' + token + '&name=' + name + '">重置密码链接</a>' +
-    '<p>若您没有在' + config.name + '社区填写过注册信息，说明有人滥用了您的电子邮箱，请删除此邮件，我们对给您造成的打扰感到抱歉。</p>' +
-    '<p>' + config.name + '社区 谨上。</p>';
+  var subject = config.name + 'Recuperação de senha';
+  var html = '<p>Olá：' + name + '</p>' +
+    '<p>Recebemos o seu pedido para redefinir a sua senha, por favor clique no link a seguir no prazo de 24h para redefinir a sua senha：</p>' +
+    '<a href="' + SITE_ROOT_URL + '/reset_pass?key=' + token + '&name=' + name + '">Redefinir sua senha</a>' +
+    '<p>Caso não tenha solicitado nada em nosso site ' + config.name + ', pedimos sinceras desculpas. Porfavor apague essa mensagem.</p>' +
+    '<p>Nós, ' + config.name + ', agradecemos a sua atenção.</p>';
 
   exports.sendMail({
     from: from,

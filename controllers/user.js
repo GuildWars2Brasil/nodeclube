@@ -20,7 +20,7 @@ exports.index = function (req, res, next) {
       return next(err);
     }
     if (!user) {
-      res.render404('这个用户不存在。');
+      res.render404('O usuário não existe');
       return;
     }
 
@@ -41,7 +41,7 @@ exports.index = function (req, res, next) {
         recent_topics: recent_topics,
         recent_replies: recent_replies,
         token: token,
-        pageTitle: util.format('@%s 的个人主页', user.loginname),
+        pageTitle: util.format('Perfil de @%s', user.loginname),
       });
     };
 
@@ -83,7 +83,7 @@ exports.showSetting = function (req, res, next) {
       return next(err);
     }
     if (req.query.save === 'success') {
-      user.success = '保存成功。';
+      user.success = 'Salvo com sucesso';
     }
     user.error = null;
     return res.render('user/setting', user);
@@ -140,13 +140,13 @@ exports.setting = function (req, res, next) {
     var old_pass = validator.trim(req.body.old_pass);
     var new_pass = validator.trim(req.body.new_pass);
     if (!old_pass || !new_pass) {
-      return res.send('旧密码或新密码不得为空');
+      return res.send('A senha antiga ou nova não pode estar vazia');
     }
 
     User.getUserById(req.session.user._id, ep.done(function (user) {
       tools.bcompare(old_pass, user.pass, ep.done(function (bool) {
         if (!bool) {
-          return showMessage('当前密码不正确。', user);
+          return showMessage('A senha atual está incorreta', user);
         }
 
         tools.bhash(new_pass, ep.done(function (passhash) {
@@ -155,7 +155,7 @@ exports.setting = function (req, res, next) {
             if (err) {
               return next(err);
             }
-            return showMessage('密码已被修改。', user, true);
+            return showMessage('A senha foi modificada com sucesso', user, true);
 
           });
         }));
@@ -245,7 +245,7 @@ exports.listTopics = function (req, res, next) {
 
   User.getUserByLoginName(user_name, function (err, user) {
     if (!user) {
-      res.render404('这个用户不存在。');
+      res.render404('O usuário não existe');
       return;
     }
 
@@ -280,7 +280,7 @@ exports.listReplies = function (req, res, next) {
 
   User.getUserByLoginName(user_name, function (err, user) {
     if (!user) {
-      res.render404('这个用户不存在。');
+      res.render404('O usuário não existe');
       return;
     }
 
