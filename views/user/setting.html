@@ -5,7 +5,7 @@
     <div class='header'>
       <ul class='breadcrumb'>
         <li><a href='/'>Home</a><span class='divider'>/</span></li>
-        <li class='active'>设置</li>
+        <li class='active'>Configurar</li>
       </ul>
     </div>
     <div class='inner'>
@@ -22,7 +22,7 @@
       <% } %>
       <form id='setting_form' class='form-horizontal' action='/setting' method='post'>
         <div class='control-group'>
-          <label class='control-label' for='name'>用户名</label>
+          <label class='control-label' for='name'>Nome do usuário</label>
 
           <div class='controls'>
             <input class='input-xlarge readonly' id='name' name='name' size='30' type='text' readonly='true'
@@ -30,24 +30,24 @@
           </div>
         </div>
         <div class='control-group'>
-          <label class='control-label' for='email'>电子邮件</label>
+          <label class='control-label' for='email'>E-mail</label>
 
           <div class='controls'>
             <input class='input-xlarge readonly' id='email' name='email' size='30' type='text'
                    readonly='true' value="<%= email %>"/>
 
-            <p>同时决定了 Gravatar 头像</p>
+            <p>Gravatar vinculado</p>
           </div>
         </div>
         <div class='control-group'>
-          <label class='control-label' for='url'>个人网站</label>
+          <label class='control-label' for='url'>Website pessoal</label>
 
           <div class='controls'>
             <input class='input-xlarge' id='url' name='url' size='30' type='text' value="<%= typeof(url) !== 'undefined' ? url : '' %>"/>
           </div>
         </div>
         <div class='control-group'>
-          <label class='control-label' for='location'>所在地点</label>
+          <label class='control-label' for='location'>Localização</label>
 
           <div class='controls'>
             <input class='input-xlarge' id='location' name='location' size='30' type='text'
@@ -56,7 +56,7 @@
         </div>
 
         <div class='control-group'>
-          <label class='control-label' for='weibo'>微博</label>
+          <label class='control-label' for='weibo'>Weibo</label>
 
           <div class='controls'>
             <input class='input-xlarge' id='weibo' name='weibo' size='30' type='text' value="<%= typeof(weibo) !== 'undefined' ? weibo : '' %>"
@@ -69,11 +69,11 @@
           <div class='controls'>
             <input class='input-xlarge' id='github' name='github' size='30' type='text'
                    value="<%= typeof(githubUsername) !== 'undefined' ? '@' + githubUsername : '' %>" placeholder="@username" readonly="readonly" />
-            <p>请通过 GitHub 登陆 CNode 来修改此处</p>
+            <p>Modifique este usuário pelo GitHub</p>
           </div>
         </div>
         <div class='control-group'>
-          <label class='control-label' for='signature'>个性签名</label>
+          <label class='control-label' for='signature'>Assinatura</label>
 
           <div class='controls'>
             <textarea class='input-xlarge' id='signature' name='signature' size='30'><%= typeof(signature) !== 'undefined' ? signature : "" %></textarea>
@@ -83,7 +83,7 @@
         <input type='hidden' name='_csrf' value='<%= csrf %>'/>
 
         <div class='form-actions'>
-          <input type='submit' class='span-primary submit_btn' data-loading-text="保存中.." value='保存设置'/>
+          <input type='submit' class='span-primary submit_btn' data-loading-text="Salvando..." value='保存设置'/>
         </div>
       </form>
     </div>
