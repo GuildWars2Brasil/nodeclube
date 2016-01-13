@@ -94,9 +94,9 @@
 
         <a href='/topic/<%= topic._id %>/lock' data-method="post">
           <% if (topic.lock) { %>
-            <i class="fa fa-lg fa-unlock" title='Abrir Tópico'></i>
+            <i class="fa fa-lg fa-unlock" title='Liberar Tópico'></i>
           <% } else { %>
-            <i class="fa fa-lg fa-lock" title='Fechar Tópico (não será mais possível responder)'/></i>
+            <i class="fa fa-lg fa-lock" title='Trancar Tópico (não será mais possível responder)'/></i>
           <% } %>
         </a>
 
@@ -148,7 +148,7 @@
             <textarea class='editor' name='r_content' rows='8'></textarea>
 
             <div class='editor_buttons'>
-              <input class='span-primary submit_btn' type="submit" data-loading-text="Postando..." value="Post <%= topic.lock ? '(Este tópico está fechado)' : ''%>" <%= topic.lock ? 'disabled="disabled"' : ''%>>
+              <input class='span-primary submit_btn' type="submit" data-loading-text="Postando..." value="Post <%= topic.lock ? '(Este tópico está trancado)' : ''%>" <%= topic.lock ? 'disabled="disabled"' : ''%>>
             </div>
           </div>
 

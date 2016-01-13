@@ -36,7 +36,7 @@ exports.index = function (req, res, next) {
 
   var topic_id = req.params.tid;
   if (topic_id.length !== 24) {
-    return res.render404('此话题不存在或已被删除。');
+    return res.render404('Este tópico foi removido ou não existe');
   }
   var events = ['topic', 'other_topics', 'no_reply_topics'];
   var ep = EventProxy.create(events, function (topic, other_topics, no_reply_topics) {
@@ -120,13 +120,13 @@ exports.put = function (req, res, next) {
   // 验证
   var editError;
   if (title === '') {
-    editError = '标题不能是空的。';
+    editError = 'O título não pode estar vazio';
   } else if (title.length < 5 || title.length > 100) {
-    editError = '标题字数太多或太少。';
+    editError = 'O título é muito curto';
   } else if (!tab || allTabs.indexOf(tab) === -1) {
-    editError = '必须选择一个版块。';
+    editError = 'Você deve selecionar uma aba';
   } else if (content === '') {
-    editError = '内容不可为空';
+    editError = 'O conteúdo do post não pode ser vazio';
   }
   // END 验证
 
@@ -169,7 +169,7 @@ exports.showEdit = function (req, res, next) {
 
   Topic.getTopicById(topic_id, function (err, topic, tags) {
     if (!topic) {
-      res.render404('此话题不存在或已被删除。');
+      res.render404('Este tópico foi removido ou não existe');
       return;
     }
 
@@ -183,7 +183,7 @@ exports.showEdit = function (req, res, next) {
         tabs: config.tabs
       });
     } else {
-      res.renderError('对不起，你不能编辑此话题。', 403);
+      res.renderError('Desculpe, você não pode editar este tópico', 403);
     }
   });
 };
@@ -196,7 +196,7 @@ exports.update = function (req, res, next) {
 
   Topic.getTopicById(topic_id, function (err, topic, tags) {
     if (!topic) {
-      res.render404('此话题不存在或已被删除。');
+      res.render404('Este tópico foi removido ou não existe');
       return;
     }
 
@@ -208,11 +208,11 @@ exports.update = function (req, res, next) {
       // 验证
       var editError;
       if (title === '') {
-        editError = '标题不能是空的。';
+        editError = 'O título não pode estar vazio';
       } else if (title.length < 5 || title.length > 100) {
-        editError = '标题字数太多或太少。';
+        editError = 'O título é muito curto';
       } else if (!tab) {
-        editError = '必须选择一个版块。';
+        editError = 'Você deve selecionar uma aba';
       }
       // END 验证
 
@@ -243,7 +243,7 @@ exports.update = function (req, res, next) {
 
       });
     } else {
-      res.renderError('对不起，你不能编辑此话题。', 403);
+      res.renderError('Desculpe, você não pode editar este tópico', 403);
     }
   });
 };
@@ -261,18 +261,18 @@ exports.delete = function (req, res, next) {
     }
     if (!req.session.user.is_admin && !(topic.author_id.equals(req.session.user._id))) {
       res.status(403);
-      return res.send({success: false, message: '无权限'});
+      return res.send({success: false, message: 'Sem permissão'});
     }
     if (!topic) {
       res.status(422);
-      return res.send({ success: false, message: '此话题不存在或已被删除。' });
+      return res.send({ success: false, message: 'Este tópico foi removido ou não existe' });
     }
     topic.deleted = true;
     topic.save(function (err) {
       if (err) {
         return res.send({ success: false, message: err.message });
       }
-      res.send({ success: true, message: '话题已被删除。' });
+      res.send({ success: true, message: 'O tópico foi criado' });
     });
   });
 };
@@ -283,7 +283,7 @@ exports.top = function (req, res, next) {
   var referer  = req.get('referer');
 
   if (topic_id.length !== 24) {
-    res.render404('此话题不存在或已被删除。');
+    res.render404('Este tópico foi removido ou não existe');
     return;
   }
   Topic.getTopic(topic_id, function (err, topic) {
@@ -291,7 +291,7 @@ exports.top = function (req, res, next) {
       return next(err);
     }
     if (!topic) {
-      res.render404('此话题不存在或已被删除。');
+      res.render404('Este tópico foi removido ou não existe');
       return;
     }
     topic.top = !topic.top;
@@ -299,7 +299,7 @@ exports.top = function (req, res, next) {
       if (err) {
         return next(err);
       }
-      var msg = topic.top ? '此话题已置顶。' : '此话题已取消置顶。';
+      var msg = topic.top ? 'TOP marcado no tópico' : 'TOP removido do tópico';
       res.render('notify/notify', {success: msg, referer: referer});
     });
   });
@@ -315,7 +315,7 @@ exports.good = function (req, res, next) {
       return next(err);
     }
     if (!topic) {
-      res.render404('此话题不存在或已被删除。');
+      res.render404('Este tópico foi removido ou não existe');
       return;
     }
     topic.good = !topic.good;
@@ -323,7 +323,7 @@ exports.good = function (req, res, next) {
       if (err) {
         return next(err);
       }
-      var msg = topic.good ? '此话题已加精。' : '此话题已取消加精。';
+      var msg = topic.good ? 'LIKE marcado no tópico' : 'LIKE removido do tópico';
       res.render('notify/notify', {success: msg, referer: referer});
     });
   });
@@ -338,7 +338,7 @@ exports.lock = function (req, res, next) {
       return next(err);
     }
     if (!topic) {
-      res.render404('此话题不存在或已被删除。');
+      res.render404('Este tópico foi removido ou não existe');
       return;
     }
     topic.lock = !topic.lock;
@@ -346,7 +346,7 @@ exports.lock = function (req, res, next) {
       if (err) {
         return next(err);
       }
-      var msg = topic.lock ? '此话题已锁定。' : '此话题已取消锁定。';
+      var msg = topic.lock ? 'Tópico trancado' : 'Tópico liberado';
       res.render('notify/notify', {success: msg, referer: referer});
     });
   });
