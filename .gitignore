@@ -1,4 +1,6 @@
 config.js
+secrets.tar
+client-secret.json
 .cov
 coverage
 node_modules
