@@ -5,14 +5,14 @@
     <div class='header'>
       <ul class='breadcrumb'>
         <li><a href='/'>Home</a><span class='divider'>/</span></li>
-        <li class='active'><%= user.loginname %> 关注的人</li>
+        <li class='active'><%= user.loginname %> As pessoas em causa</li>
       </ul>
     </div>
     <div class='inner'>
       <% if (users.length > 0) { %>
       <%- partial('../user/user', { collection: users, as: 'user' }) %>
       <% } else { %>
-      <p>没有关注任何人</p>
+      <p>Não segue ninguém</p>
       <% } %>
     </div>
   </div>
