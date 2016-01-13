@@ -5,12 +5,12 @@
     <div class='header'>
       <ul class='breadcrumb'>
         <li><a href='/'>Home</a><span class='divider'>/</span></li>
-        <li class='active'><a href="/user/<%=user.loginname%>"><%=user.loginname%>的Home</a></li>
+        <li class='active'><a href="/user/<%=user.loginname%>"><%=user.loginname%>de Home</a></li>
       </ul>
     </div>
   </div>
   <div class='panel'>
-    <div class="header"><%=user.loginname%> 创建的话题</div>
+    <div class="header">Criado por <%=user.loginname%></div>
     <div class="inner padding">
     <% if(typeof(topics) !== 'undefined' && topics.length > 0 ){ %>
     <%- partial('../topic/list',

@@ -5,14 +5,14 @@
     <div class='header'>
       <ul class='breadcrumb'>
         <li><a href='/'>Home</a><span class='divider'>/</span></li>
-        <li class='active'>社区达人</li>
+        <li class='active'>Comunidade Daren</li>
       </ul>
     </div>
     <div class='inner'>
       <% if(typeof(stars) !== 'undefined' && stars.length > 0){ %>
       <%- partial('../user/user',{collection:stars,as:'user'}) %>
       <% }else{ %>
-      <p>还没有社区达人</p>
+      <p>Não é uma comunidade de pessoas</p>
       <% } %>
     </div>
   </div>

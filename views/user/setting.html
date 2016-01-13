@@ -83,7 +83,7 @@
         <input type='hidden' name='_csrf' value='<%= csrf %>'/>
 
         <div class='form-actions'>
-          <input type='submit' class='span-primary submit_btn' data-loading-text="Salvando..." value='保存设置'/>
+          <input type='submit' class='span-primary submit_btn' data-loading-text="Salvando..." value='Salvar Configurações'/>
         </div>
       </form>
     </div>
@@ -91,19 +91,19 @@
 
   <div class='panel'>
     <div class='header'>
-      <span class='col_fade'>更改密码</span>
+      <span class='col_fade'>Modificar Senha</span>
     </div>
     <div class='inner'>
       <form id='change_pass_form' class='form-horizontal' action='/setting' method='post'>
         <div class='control-group'>
-          <label class='control-label' for='old_pass'>当前密码</label>
+          <label class='control-label' for='old_pass'>Senha antiga</label>
 
           <div class='controls'>
             <input class='input-xlarge' type='password' id='old_pass' name='old_pass' size='30'/>
           </div>
         </div>
         <div class='control-group'>
-          <label class='control-label' for='new_pass'>新密码</label>
+          <label class='control-label' for='new_pass'>Nova senha</label>
 
           <div class='controls'>
             <input class='input-xlarge' type='password' id='new_pass' name='new_pass' size='30'/>
@@ -113,7 +113,7 @@
         <input type='hidden' name='_csrf' value='<%= csrf %>'/>
 
         <div class='form-actions'>
-          <input type='submit' class='span-primary submit_btn' data-loading-text="更改中.." value='更改密码'/>
+          <input type='submit' class='span-primary submit_btn' data-loading-text="Alterando..." value='Alterar Senha'/>
         </div>
       </form>
     </div>
@@ -121,15 +121,15 @@
 
   <div class='panel'>
     <div class='header'>
-      <span class='col_fade'>Access Token</span>
+      <span class='col_fade'>Token de Acesso</span>
     </div>
     <div class='inner'>
       <div>
-        <span>字符串：</span>
+        <span>Token：</span>
         <%- accessToken %>
       </div>
       <div>
-        <span>二维码：</span>
+        <span>QRCode：</span>
         <span id="access-token-qrcode"></span>
       </div>
     </div>
