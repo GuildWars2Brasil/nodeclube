@@ -7,7 +7,7 @@
 
     <div class='board clearfix'>
       <div class='floor'>
-        <span class='big'>积分: <%= user.score %> </span>
+        <span class='big'>Score: <%= user.score %> </span>
       </div>
     </div>
     <div class="space clearfix"></div>
@@ -16,7 +16,7 @@
         <% if (user.signature) {%>
             <%-escapeSignature(user.signature)%>
         <%} else {%>
-            这家伙很懒，什么个性签名都没有留下。
+            Essa pessoa nos deixou no vácuo, não preencheu nenhuma assinatura :(
         <%}%>
         ”
     </span>
@@ -37,10 +37,10 @@
         if (data.status === 'success') {
           var $btns = $('.follow_btn');
           if (action === 'follow') {
-            $btns.html('取消关注');
+            $btns.html('Deixar de seguir');
             $btns.attr('action', 'un_follow');
           } else {
-            $btns.html('加入关注');
+            $btns.html('Seguir');
             $btns.attr('action', 'follow');
           }
           $btns.toggleClass('btn-success');
