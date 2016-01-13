@@ -6,7 +6,7 @@
     <% if(message.type == 'reply'){ %>
 		<span>
 			<a href="/user/<%= message.author.loginname %>" target='_blank'><%= message.author.loginname %></a>
-			回复了你的话题
+			respondeu a seu tópico
 			<a href="/topic/<%- message.topic._id + (message.reply ? '#' + message.reply._id : '') %>" target='_blank'><%=
         message.topic.title %></a>
 		</span>
@@ -14,10 +14,10 @@
     <% if(message.type == 'reply2'){ %>
 		<span>
 			<a href="/user/<%= message.author.loginname %>" target='_blank'><%= message.author.loginname %></a>
-			在话题
+			no tópico
 			<a href="/topic/<%= message.topic._id + (message.reply ? '#' + message.reply._id : '') %>" target='_blank'><%=
         message.topic.title %></a>
-			中回复了你的回复
+			respondeu a sua resposta
 		</span>
     <% } %>
     <% if(message.type == 'follow'){ %>
@@ -29,7 +29,7 @@
     <% if (message.type == 'at'){ %>
 		<span>
 			<a href="/user/<%= message.author.loginname %>" target='_blank'><%= message.author.loginname %></a>
-			在话题
+			no tópico
 			<a href="/topic/<%= message.topic._id + (message.reply ? '#' + message.reply._id : '') %>" target='_blank'><%=
         message.topic.title %></a>
 			中@了你
