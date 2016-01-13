@@ -42,7 +42,7 @@ exports.signup = function (req, res, next) {
     return ep.emit('prop_err', '邮箱不合法。');
   }
   if (pass !== rePass) {
-    return ep.emit('prop_err', '两次密码输入不一致。');
+    return ep.emit('prop_err', 'As senhas não correspondem');
   }
   // END 验证信息的正确性
 
@@ -55,7 +55,7 @@ exports.signup = function (req, res, next) {
       return next(err);
     }
     if (users.length > 0) {
-      ep.emit('prop_err', '用户名或邮箱已被使用。');
+      ep.emit('prop_err', 'Email ou nome de usuário em uso');
       return;
     }
 
@@ -69,7 +69,7 @@ exports.signup = function (req, res, next) {
         // 发送激活邮件
         mail.sendActiveMail(email, utility.md5(email + passhash + config.session_secret), loginname);
         res.render('sign/signup', {
-          success: '欢迎加入 ' + config.name + '！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。'
+          success: 'Olá ' + config.name + '！Enviamos uma mensagem para o email cadastro. Por favor ative a sua conta clicando no link dentro deste email.'
         });
       });
 
