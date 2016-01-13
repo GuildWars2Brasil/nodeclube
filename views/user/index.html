@@ -15,7 +15,7 @@
 
       <div class='user_profile'>
         <ul class='unstyled'>
-          Score <span class='big'><%= user.score %></span>
+          Score: <span class='big'><%= user.score %></span>
           <% if (user.collect_topic_count) {%>
           <li>
             <a class='dark' href="/user/<%= user.loginname %>/collections" target='_blank'>
