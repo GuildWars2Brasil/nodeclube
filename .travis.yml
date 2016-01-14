@@ -16,7 +16,6 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
-    - rhc
 services:
 - mongodb
 - redis
@@ -28,6 +27,7 @@ script: make test-cov
 after_success:
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 before_deploy:
+- gem install rhc
 - rhc setup --server openshift.redhat.com -l $OPENSHIFT_USER -p $OPENSHIFT_PASS
 - rhc env set encrypted_32a52b2fc29a_key=$encrypted_32a52b2fc29a_key -a reborn
 - rhc env set encrypted_32a52b2fc29a_iv=$encrypted_32a52b2fc29a_iv -a reborn
