@@ -1,7 +1,11 @@
 sudo: false
 language: node_js
 env:
-- CXX=g++-4.8
+  matrix:
+  - CXX=g++-4.8
+  global:
+  - secure: uKu0/uk3XKB0UXXEXm7ZOTNxopB799fKumRLJt4JpYaO9mPwex/5zl83ypazO4wOcBXSNCs2qgUINBBsfEH1+wJZ0YHI3eA9mlSB3DtKSFV7eTjOKeOnEl7y6R0EAaWJqnj3qEuoeppjJ4Wp7UIx9k/ZmvNJVzvqFS+kK3nZyR1WcNgSD29Ry+kmgdEpr5QZssxheg0+0EO4reEjTrbnzECmiagXtsxPv0jZ1kDQ8KHOuRFyGGkOZz2H01HI7o/SWuhlFHnIN104bQh91XJ/dxwlWCAKJ0+uyjXg7GPgUpRD72h7AO1Kf0+OJ4Jquiv2zGQChiug4UjJL+pnSURfX6CtHjr4Ii4IHvskLw8623ZQTSloUwxTQGMMoifqwBuMaFGZAMGUUKm2XE1R/FOBGOipw9DgXfPp4TI1SgcLAqGUgq8EUoZdZf9kC75l3fInCWMFmItEu2qI+XCKtCgwCcoR8LV/9NsSkPMC+xpq+j8NO0OU3Zfo8Z+dxtR4ZUOmv5iGiUHKCkcXkIgyBMrkRIpUMwGfKmW7q5W3UlUz7YBsA9pxwXIXkEuagm6sm+XaFIVVXTP0qbl0kXbagjaKJSjVXgILGmHp692QvsvyScqyWZdyjlMNHZjLeYdkkUwjUjImQMczt7SKYD+Nn+iQgoXAE2F8KdhVszhoL5Z0Pn0=
+  - secure: pkGV+F4oWdh6zMgbwcALxmQJ/gd3MsgZQFXqaoyOYdRgt5xrwV0RtTfJqtnHlzr/tloLpTNHZCDacZFkrtb12YrUtIYqx9aM1QSZddDDYpjw91IfxxBQ7ob8l91OojXsr7O5Cr+Y5GnVgGkFmTJ6Fx7NzVpHZuBi9U3HNeISQYPlqJDMHiov3GAt06U31WrL+FrfbyAasqs9NCkdBvaDoIrzbkYZx4dCNCPWt/kosHjg4JKM4MmBhbf8438d8jRnG8bJ2Jz9FfuzT3J/nbSqH3YApznvdRtk073WuFXOpvfPUxATmGm+4q2qm+vAlxwE+s7ApOFesHG+Z+9hJpEeCaCk+OB3oGygRr0rNrlFYMfV+UyMplCfXLwdJ5WhbMw6I8tC5S0fcxKChyOrNIceGdPrs7KRtveNzBwGWtgE4Kd3Y3VV1mRCXnhV1QBorVvLKA9bcMuPx7243ET9NswLGgZ6GhUy0fcRhvcykyscJXq7EyGCE8fbrK0giTty/RVSduUdydhDfafE8IX+EkGmzf7lqi8DV+di4GSkQVxp9sb+6kreNLtcSsHu3IZYqjy3yM7VDNr6h8qmrXHn+EQYy+xmVP6pvD6HaZDvPs00utY+u4otYM4DzU9KWnylhbYHre1kFpCLK5zVB7lv9UWSb1vaBQ1tQHvgibVTXcjlR5c=
 node_js:
 - '0.10'
 - stable
@@ -21,15 +25,16 @@ before_install:
 - $CXX --version
 script: make test-cov
 after_success:
-  cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+- cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 before_deploy:
+- sudo gem install rhc
+- rhc setup --server openshift.redhat.com -l $OPENSHIFT_USER -p $OPENSHIFT_PASS
 - rhc env set encrypted_32a52b2fc29a_key=$encrypted_32a52b2fc29a_key -a reborn
 - rhc env set encrypted_32a52b2fc29a_iv=$encrypted_32a52b2fc29a_iv -a reborn
 deploy:
   provider: openshift
-  user: guildwars2brasil@gmail.com
-  password:
-    secure: KQEKfSTbxJ5Mwn7najWx0zdwXdYo0+KAWXL/sgbQBsnDxKPiEtJu0wU2iQyC96aUnP0xbSeeHdZ83VH4QINuavu4OsPVCT6IvooF0Nlo261Syo0/RntvORwa5Fgi25ag38odsAU1knL91ACE5AJ6KG0WLU94P/iaNe8QAYv71jsCMCeJ1HAHddO8jplv/DNQ0qllMcXJaxog0s9cujrUcc1E8Zr4spAmwCdtAO8KEADcQoIy/DG+81ON0ebSQzxtKr1VjwoYM+lQCVvsS2WYYN02MV9UfXg7N6kgRafv2rSBkdDCjDKLnG3sDAuJikGH9NNxL3fiA521I5H03GaIQPCZUboD7NnM9RT2edPmkBTdoW8hzjVtYBVZNz0Xz7ndEoaN4RGDnM/+ds84Cu3UstiKhou4gBXLIj1kTpPFz+yS5CsLwLBnjvicW2iYVfJ/hs+TmwqKVzN3A7P3tjH3DF9q1TMe5Zy2Ay0vV6hrNSrcLEsE4Jp7etltzHwqb3mHYTgsOTIqL7FYNCVj056QTtgHfblQ/P1V1Rx9LIz9wwfITOe3Eyidw2TvI2EjuyAkbfbaUBEZTMOfkiY96qRJkfo1Oqp7cfDPXa6S/kx+5ATrHzqrrj7Vu6kNE+nPEf6SCWg8Xp/zqv2FsmOj/GDVQbUKm3BDpezgV9wwpZZQ4g4=
+  user: $OPENSHIFT_USER
+  password: $OPENSHIFT_PASS
   app: reborn
   domain: guildwars2brasil
   on:
