@@ -43,7 +43,7 @@ describe('test/controllers/topic.test.js', function () {
       request.get('/topic/create')
         .set('Cookie', support.normalUserCookie)
         .expect(200, function (err, res) {
-          res.text.should.containEql('发布话题');
+          res.text.should.containEql('Postar tópico');
           done(err);
         });
     });
@@ -54,12 +54,12 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/create')
       .send({
         title: '',
-        tab: 'share',
+        tab: 'geral',
         t_content: '木耳敲回车',
       })
       .set('Cookie', support.normalUserCookie)
       .expect(422, function (err, res) {
-        res.text.should.containEql('标题不能是空的。');
+        res.text.should.containEql('O título não pode estar vazio');
         done(err);
       });
     });
@@ -73,7 +73,7 @@ describe('test/controllers/topic.test.js', function () {
       })
       .set('Cookie', support.normalUserCookie)
       .expect(422, function (err, res) {
-        res.text.should.containEql('必须选择一个版块。');
+        res.text.should.containEql('Você deve selecionar uma aba');
         done(err);
       });
     });
@@ -82,12 +82,12 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/create')
       .send({
         title: '呵呵复呵呵',
-        tab: 'share',
+        tab: 'geral',
         t_content: '',
       })
       .set('Cookie', support.normalUserCookie)
       .expect(422, function (err, res) {
-        res.text.should.containEql('内容不可为空');
+        res.text.should.containEql('O conteúdo do post não pode ser vazio');
         done(err);
       });
     });
@@ -96,7 +96,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/create')
       .send({
         title: '呵呵复呵呵' + new Date(),
-        tab: 'share',
+        tab: 'geral',
         t_content: '木耳敲回车',
       })
       .set('Cookie', support.normalUserCookie)
@@ -112,7 +112,7 @@ describe('test/controllers/topic.test.js', function () {
       request.get('/topic/' + support.testTopic._id + '/edit')
       .set('Cookie', support.normalUserCookie)
       .expect(200, function (err, res) {
-        res.text.should.containEql('编辑话题');
+        res.text.should.containEql('Editar tópico');
         done(err);
       });
     });
@@ -123,7 +123,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/' + support.testTopic._id + '/edit')
       .send({
         title: '修改后的 topic title',
-        tab: 'share',
+        tab: 'geral',
         t_content: '修改后的木耳敲回车',
       })
       .set('Cookie', support.normalUserCookie)
@@ -147,7 +147,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/' + wouldBeDeleteTopic._id + '/delete')
       .set('Cookie', support.normalUser2Cookie)
       .expect(403, function (err, res) {
-        res.body.should.eql({success: false, message: '无权限'});
+        res.body.should.eql({success: false, message: 'Sem permissão'});
         done(err);
       });
     });
@@ -156,7 +156,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/' + wouldBeDeleteTopic._id + '/delete')
       .set('Cookie', support.normalUserCookie)
       .expect(200, function (err, res) {
-        res.body.should.eql({ success: true, message: '话题已被删除。' });
+        res.body.should.eql({ success: true, message: 'O tópico foi excluído' });
         done(err);
       });
     });
@@ -167,7 +167,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/' + support.testTopic._id + '/top')
       .set('Cookie', support.adminUserCookie)
       .expect(200, function (err, res) {
-        res.text.should.containEql('此话题已置顶。');
+        res.text.should.containEql('TOP marcado no tópico');
         done(err);
       });
     });
@@ -176,7 +176,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/' + support.testTopic._id + '/top')
       .set('Cookie', support.adminUserCookie)
       .expect(200, function (err, res) {
-        res.text.should.containEql('此话题已取消置顶');
+        res.text.should.containEql('TOP removido do tópico');
         done(err);
       });
     });
@@ -187,7 +187,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/' + support.testTopic._id + '/good')
       .set('Cookie', support.adminUserCookie)
       .expect(200, function (err, res) {
-        res.text.should.containEql('此话题已加精。');
+        res.text.should.containEql('LIKE marcado no tópico');
         done(err);
       });
     });
@@ -196,7 +196,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/' + support.testTopic._id + '/good')
       .set('Cookie', support.adminUserCookie)
       .expect(200, function (err, res) {
-        res.text.should.containEql('此话题已取消加精。');
+        res.text.should.containEql('LIKE removido do tópico');
         done(err);
       });
     });
@@ -253,7 +253,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/' + support.testTopic._id + '/lock')
       .set('Cookie', support.adminUserCookie)
       .expect(200, function (err, res) {
-        res.text.should.containEql('此话题已锁定。');
+        res.text.should.containEql('Tópico trancado');
         done(err);
       });
     });
@@ -267,7 +267,7 @@ describe('test/controllers/topic.test.js', function () {
       })
       .expect(403)
       .end(function (err, res) {
-        res.text.should.equal('此主题已锁定。');
+        res.text.should.equal('Este tópico foi trancado');
         done(err);
       });
     });
@@ -276,7 +276,7 @@ describe('test/controllers/topic.test.js', function () {
       request.post('/topic/' + support.testTopic._id + '/lock')
       .set('Cookie', support.adminUserCookie)
       .expect(200, function (err, res) {
-        res.text.should.containEql('此话题已取消锁定。');
+        res.text.should.containEql('Tópico liberado');
         done(err);
       });
     });

@@ -22,7 +22,7 @@ describe('test/controllers/message.test.js', function () {
       .set('Cookie', support.normalUserCookie)
       .expect(200)
       .end(function (err, res) {
-        res.text.should.containEql('新消息');
+        res.text.should.containEql('Novidades');
         done(err);
       });
     });

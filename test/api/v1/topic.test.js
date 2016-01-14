@@ -59,7 +59,7 @@ describe('test/api/v1/topic.test.js', function () {
         .send({
           accesstoken: mockUser.accessToken,
           title: '我是 api 测试小助手',
-          tab: 'share',
+          tab: 'geral',
           content: '我也是 api 测试小助手',
         })
         .end(function (err, res) {

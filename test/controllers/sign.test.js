@@ -57,7 +57,7 @@ describe('test/controllers/sign.test.js', function () {
         })
         .expect(200, function (err, res) {
           should.not.exists(err);
-          res.text.should.containEql('欢迎加入');
+          res.text.should.containEql('Bem-vindo');
           UserProxy.getUserByLoginName(loginname, function (err, user) {
             should.not.exists(err);
             user.should.ok();
@@ -92,8 +92,8 @@ describe('test/controllers/sign.test.js', function () {
   describe('login in', function () {
     it('should visit sign in page', function (done) {
       request.get('/signin').end(function (err, res) {
-        res.text.should.containEql('登录');
-        res.text.should.containEql('通过 GitHub 登录');
+        res.text.should.containEql('Login');
+        res.text.should.containEql('Entrar com o GitHub');
         done(err);
       });
     });
@@ -106,7 +106,7 @@ describe('test/controllers/sign.test.js', function () {
       })
       .end(function (err, res) {
         res.status.should.equal(422);
-        res.text.should.containEql('信息不完整。');
+        res.text.should.containEql('Informações incompletas.');
         done(err);
       });
     });
@@ -119,7 +119,7 @@ describe('test/controllers/sign.test.js', function () {
       })
       .end(function (err, res) {
         res.status.should.equal(403);
-        res.text.should.containEql('此帐号还没有被激活，激活链接已发送到');
+        res.text.should.containEql('Esta conta não foi ativada, o link de ativação foi enviado para');
         done(err);
       });
     });
@@ -146,7 +146,7 @@ describe('test/controllers/sign.test.js', function () {
           name: loginname,
         })
         .expect(200, function (err, res) {
-          res.text.should.containEql('帐号已被激活，请登录');
+          res.text.should.containEql('A conta foi ativada, por favor acessar');
           done(err);
         });
       });
@@ -174,7 +174,7 @@ describe('test/controllers/sign.test.js', function () {
     it('should 200 when get /search_pass', function (done) {
       request.get('/search_pass')
       .expect(200, function (err, res) {
-        res.text.should.containEql('找回密码');
+        res.text.should.containEql('Esqueceu a sua senha');
         done(err);
       });
     });
