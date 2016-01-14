@@ -6,3 +6,5 @@ if [ -n "$encrypted_32a52b2fc29a_key" ]; then
 else
   echo "WARNING: config.js.enc não pôde ser descriptografado";
 fi
+
+export NODE_ENV="production"
