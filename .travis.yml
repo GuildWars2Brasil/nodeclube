@@ -8,8 +8,6 @@ env:
   - secure: pkGV+F4oWdh6zMgbwcALxmQJ/gd3MsgZQFXqaoyOYdRgt5xrwV0RtTfJqtnHlzr/tloLpTNHZCDacZFkrtb12YrUtIYqx9aM1QSZddDDYpjw91IfxxBQ7ob8l91OojXsr7O5Cr+Y5GnVgGkFmTJ6Fx7NzVpHZuBi9U3HNeISQYPlqJDMHiov3GAt06U31WrL+FrfbyAasqs9NCkdBvaDoIrzbkYZx4dCNCPWt/kosHjg4JKM4MmBhbf8438d8jRnG8bJ2Jz9FfuzT3J/nbSqH3YApznvdRtk073WuFXOpvfPUxATmGm+4q2qm+vAlxwE+s7ApOFesHG+Z+9hJpEeCaCk+OB3oGygRr0rNrlFYMfV+UyMplCfXLwdJ5WhbMw6I8tC5S0fcxKChyOrNIceGdPrs7KRtveNzBwGWtgE4Kd3Y3VV1mRCXnhV1QBorVvLKA9bcMuPx7243ET9NswLGgZ6GhUy0fcRhvcykyscJXq7EyGCE8fbrK0giTty/RVSduUdydhDfafE8IX+EkGmzf7lqi8DV+di4GSkQVxp9sb+6kreNLtcSsHu3IZYqjy3yM7VDNr6h8qmrXHn+EQYy+xmVP6pvD6HaZDvPs00utY+u4otYM4DzU9KWnylhbYHre1kFpCLK5zVB7lv9UWSb1vaBQ1tQHvgibVTXcjlR5c=
 node_js:
 - '0.10'
-- stable
-- '4'
 addons:
   apt:
     sources:
