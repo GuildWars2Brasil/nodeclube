@@ -18,7 +18,6 @@ services:
 before_install:
 - openssl aes-256-cbc -K $encrypted_32a52b2fc29a_key -iv $encrypted_32a52b2fc29a_iv
   -in secrets.tar.enc -out secrets.tar -d
-- cat secrets.tar | nc reborn.guildwars2brasil.com.br 23000
 - tar xvf secrets.tar
 - $CXX --version
 script: make test-cov
