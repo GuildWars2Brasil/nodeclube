@@ -69,7 +69,7 @@ exports.signup = function (req, res, next) {
         // 发送激活邮件
         mail.sendActiveMail(email, utility.md5(email + passhash + config.session_secret), loginname);
         res.render('sign/signup', {
-          success: 'Olá ' + config.name + '！Enviamos uma mensagem para o email cadastro. Por favor ative a sua conta clicando no link dentro deste email.'
+          success: 'Bem-vindo ao ' + config.name + '！Enviamos uma mensagem para o email cadastro. Por favor ative a sua conta clicando no link dentro deste email.'
         });
       });
 

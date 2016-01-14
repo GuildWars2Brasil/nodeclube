@@ -34,12 +34,12 @@ describe('test/controllers/user.test.js', function () {
       request.get('/user/' + testUser.loginname)
       .expect(200, function (err, res) {
         var texts = [
-          '注册时间',
-          '这家伙很懒，什么个性签名都没有留下。',
-          '最近创建的话题',
-          '无话题',
-          '最近参与的话题',
-          '无话题'
+          'Usuário a',
+          'Essa pessoa nos deixou no vácuo, não preencheu nenhuma assinatura :(',
+          'Últimos tópicos',
+          'Nenhum tópico',
+          'Últimos posts',
+          'Nenhum tópico'
         ];
         texts.forEach(function (text) {
           res.text.should.containEql(text);
@@ -53,7 +53,7 @@ describe('test/controllers/user.test.js', function () {
     it('should show star uses', function (done) {
       request.get('/stars')
       .expect(200, function (err, res) {
-        res.text.should.containEql('社区达人');
+        res.text.should.containEql('Comunidade Daren');
         done(err);
       });
     });
@@ -64,8 +64,8 @@ describe('test/controllers/user.test.js', function () {
       request.get('/setting')
       .set('Cookie', support.normalUserCookie)
       .expect(200, function (err, res) {
-        res.text.should.containEql('同时决定了 Gravatar 头像');
-        res.text.should.containEql('Access Token');
+        res.text.should.containEql('Gravatar vinculado');
+        res.text.should.containEql('Token de Acesso');
         done(err);
       });
     });
@@ -75,7 +75,7 @@ describe('test/controllers/user.test.js', function () {
       .query({save: 'success'})
       .set('Cookie', support.normalUserCookie)
       .expect(200, function (err, res) {
-        res.text.should.containEql('保存成功。');
+        res.text.should.containEql('Salvo com sucesso');
         done(err);
       });
     });
@@ -116,7 +116,7 @@ describe('test/controllers/user.test.js', function () {
       .set('Cookie', support.normalUserCookie)
       .send(userInfo)
       .expect(200, function (err, res) {
-        res.text.should.containEql('密码已被修改。');
+        res.text.should.containEql('A senha foi modificada com sucesso');
         done(err);
       });
     });
@@ -130,7 +130,7 @@ describe('test/controllers/user.test.js', function () {
       .set('Cookie', support.normalUserCookie)
       .send(userInfo)
       .expect(200, function (err, res) {
-        res.text.should.containEql('当前密码不正确。');
+        res.text.should.containEql('A senha atual está incorreta');
         done(err);
       });
     });
@@ -183,7 +183,7 @@ describe('test/controllers/user.test.js', function () {
     it('should get /user/:name/collections ok', function (done) {
       request.get('/user/' + support.normalUser.loginname + '/collections')
       .expect(200, function (err, res) {
-        res.text.should.containEql('收藏的话题');
+        res.text.should.containEql('Tópicos favoritos');
         done(err);
       });
     });
@@ -193,7 +193,7 @@ describe('test/controllers/user.test.js', function () {
     it('should get /users/top100', function (done) {
       request.get('/users/top100')
       .expect(200, function (err, res) {
-        res.text.should.containEql('Top100 积分榜');
+        res.text.should.containEql('Top100 Score');
         done(err);
       });
     });
@@ -203,7 +203,7 @@ describe('test/controllers/user.test.js', function () {
     it('should get /user/:name/topics ok', function (done) {
       request.get('/user/' + support.normalUser.loginname + '/topics')
       .expect(200, function (err, res) {
-        res.text.should.containEql('创建的话题');
+        res.text.should.containEql('Criado por');
         done(err);
       });
     });
@@ -213,7 +213,7 @@ describe('test/controllers/user.test.js', function () {
     it('should get /user/:name/replies ok', function (done) {
       request.get('/user/' + support.normalUser.loginname + '/replies')
       .expect(200, function (err, res) {
-        res.text.should.containEql(support.normalUser.loginname + ' 参与的话题');
+        res.text.should.containEql(support.normalUser.loginname + ' Participando nos tópicos');
         done(err);
       });
     });

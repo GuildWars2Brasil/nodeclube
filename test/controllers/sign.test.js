@@ -26,7 +26,7 @@ describe('test/controllers/sign.test.js', function () {
     it('should visit sign up page', function (done) {
       request.get('/signup')
       .expect(200, function (err, res) {
-        res.text.should.containEql('确认密码');
+        res.text.should.containEql('Confirme a sua senha');
         done(err);
       });
     });
@@ -93,7 +93,7 @@ describe('test/controllers/sign.test.js', function () {
     it('should visit sign in page', function (done) {
       request.get('/signin').end(function (err, res) {
         res.text.should.containEql('Login');
-        res.text.should.containEql('Entrar com o GitHub');
+        res.text.should.containEql('Login usando GitHub');
         done(err);
       });
     });
@@ -119,7 +119,7 @@ describe('test/controllers/sign.test.js', function () {
       })
       .end(function (err, res) {
         res.status.should.equal(403);
-        res.text.should.containEql('Esta conta não foi ativada, o link de ativação foi enviado para');
+        res.text.should.containEql('A sua conta não está ativada, um email foi enviado para');
         done(err);
       });
     });
@@ -130,7 +130,7 @@ describe('test/controllers/sign.test.js', function () {
       request.post('/signout')
       .set('Cookie', config.auth_cookie_name + ':something;')
       .expect(302, function (err, res) {
-        res.headers['set-cookie'].should.eql([ 'node_club=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT' ]);
+        res.headers['set-cookie'].should.eql([ 'gw2brreborn=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT' ]);
         done(err);
       });
     });
@@ -146,7 +146,7 @@ describe('test/controllers/sign.test.js', function () {
           name: loginname,
         })
         .expect(200, function (err, res) {
-          res.text.should.containEql('A conta foi ativada, por favor acessar');
+          res.text.should.containEql('A conta foi ativada, por favor efetue login');
           done(err);
         });
       });
@@ -174,7 +174,7 @@ describe('test/controllers/sign.test.js', function () {
     it('should 200 when get /search_pass', function (done) {
       request.get('/search_pass')
       .expect(200, function (err, res) {
-        res.text.should.containEql('Esqueceu a sua senha');
+        res.text.should.containEql('Esqueci minha senha');
         done(err);
       });
     });
@@ -182,10 +182,10 @@ describe('test/controllers/sign.test.js', function () {
     it('should update search pass', function (done) {
       done = pedding(done, 2);
       mm(mailService, 'sendMail', function (data) {
-        data.from.should.equal('Nodeclub <club@126.com>');
+        data.from.should.equal('Guild Wars 2 Brasil - Reborn <postmaster@mg.guildwars2brasil.com.br>');
         data.to.should.match(new RegExp(loginname));
-        data.subject.should.equal('Nodeclub社区密码重置');
-        data.html.should.match(new RegExp('<p>您好：' + loginname));
+        data.subject.should.equal('Guild Wars 2 Brasil - Reborn Recuperação de senha');
+        data.html.should.match(new RegExp('<p>Olá：' + loginname));
         resetKey = data.html.match(/key=(.+?)&/)[1];
         done();
       });
@@ -195,7 +195,7 @@ describe('test/controllers/sign.test.js', function () {
         email: email
       })
       .expect(200, function (err, res) {
-        res.text.should.containEql('我们已给您填写的电子邮箱发送了一封邮件，请在24小时内点击里面的链接来重置密码。');
+        res.text.should.containEql('Um email lhe foi enviado com instruções para redefinição de senha');
         done(err);
       });
     });
@@ -207,7 +207,7 @@ describe('test/controllers/sign.test.js', function () {
         name : loginname
       })
       .expect(200, function (err, res) {
-        res.text.should.containEql('重置密码');
+        res.text.should.containEql('Redefinição de senha');
         done(err);
       });
     });
@@ -219,7 +219,7 @@ describe('test/controllers/sign.test.js', function () {
         name : loginname
       })
       .expect(403, function (err, res) {
-        res.text.should.containEql('信息有误，密码无法重置。');
+        res.text.should.containEql('Informação incorreta, a senha não pode ser redefinida');
         done(err);
       });
     });
@@ -233,7 +233,7 @@ describe('test/controllers/sign.test.js', function () {
         name: loginname,
       })
       .expect(200, function (err, res) {
-        res.text.should.containEql('你的密码已重置。');
+        res.text.should.containEql('A sua senha foi redefinida');
         done(err);
       })
     })
