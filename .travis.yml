@@ -4,7 +4,7 @@ env:
 - CXX=g++-4.8
 node_js:
 - '0.10'
-- 'stable'
+- stable
 - '4'
 addons:
   apt:
@@ -17,13 +17,16 @@ services:
 - redis
 before_install:
 - openssl aes-256-cbc -K $encrypted_32a52b2fc29a_key -iv $encrypted_32a52b2fc29a_iv
-  -in secrets.tar.enc -out secrets.tar -d
-- tar xvf secrets.tar
+  -in config.js.enc -out config.js -d
 - $CXX --version
 script: make test-cov
 after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 deploy:
   provider: openshift
-  user: "guildwars2brasil@gmail.com"
-  domain: "guildwars2brasil"
-  app: "reborn"
+  user: guildwars2brasil@gmail.com
+  password:
+    secure: KQEKfSTbxJ5Mwn7najWx0zdwXdYo0+KAWXL/sgbQBsnDxKPiEtJu0wU2iQyC96aUnP0xbSeeHdZ83VH4QINuavu4OsPVCT6IvooF0Nlo261Syo0/RntvORwa5Fgi25ag38odsAU1knL91ACE5AJ6KG0WLU94P/iaNe8QAYv71jsCMCeJ1HAHddO8jplv/DNQ0qllMcXJaxog0s9cujrUcc1E8Zr4spAmwCdtAO8KEADcQoIy/DG+81ON0ebSQzxtKr1VjwoYM+lQCVvsS2WYYN02MV9UfXg7N6kgRafv2rSBkdDCjDKLnG3sDAuJikGH9NNxL3fiA521I5H03GaIQPCZUboD7NnM9RT2edPmkBTdoW8hzjVtYBVZNz0Xz7ndEoaN4RGDnM/+ds84Cu3UstiKhou4gBXLIj1kTpPFz+yS5CsLwLBnjvicW2iYVfJ/hs+TmwqKVzN3A7P3tjH3DF9q1TMe5Zy2Ay0vV6hrNSrcLEsE4Jp7etltzHwqb3mHYTgsOTIqL7FYNCVj056QTtgHfblQ/P1V1Rx9LIz9wwfITOe3Eyidw2TvI2EjuyAkbfbaUBEZTMOfkiY96qRJkfo1Oqp7cfDPXa6S/kx+5ATrHzqrrj7Vu6kNE+nPEf6SCWg8Xp/zqv2FsmOj/GDVQbUKm3BDpezgV9wwpZZQ4g4=
+  app: reborn
+  domain: guildwars2brasil
+  on:
+    repo: GuildWars2Brasil/nodeclube
