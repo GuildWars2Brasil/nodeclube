@@ -6,12 +6,12 @@ Nodeclub
 [![David deps][david-image]][david-url]
 [![node version][node-image]][node-url]
 
-[travis-image]: https://img.shields.io/travis/GuildWars2Brasil/nodeclub/master.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/GuildWars2Brasil/nodeclube/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/GuildWars2Brasil/nodeclube
-[coverage-image]: https://img.shields.io/coveralls/GuildWars2Brasil/nodeclub.svg?style=flat-square
+[coverage-image]: https://img.shields.io/coveralls/GuildWars2Brasil/nodeclube.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/GuildWars2Brasil/nodeclube?branch=master
-[david-image]: https://img.shields.io/david/GuildWars2Brasil/nodeclub.svg?style=flat-square
-[david-url]: https://david-dm.org/GuildWars2Brasil/nodeclub
+[david-image]: https://img.shields.io/david/GuildWars2Brasil/nodeclube.svg?style=flat-square
+[david-url]: https://david-dm.org/GuildWars2Brasil/nodeclube
 [node-image]: https://img.shields.io/badge/node.js-%3E=_4.2-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 
