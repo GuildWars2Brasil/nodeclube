@@ -26,11 +26,12 @@ after_success:
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 before_deploy:
 - gem install rhc
-- yes | rhc setup --server openshift.redhat.com
-  -l $OPENSHIFT_USER -p $OPENSHIFT_PASS
+- yes | rhc setup --server openshift.redhat.com -l $OPENSHIFT_USER -p $OPENSHIFT_PASS
   --create-token --clean --timeout 10000
-- yes | rhc env set encrypted_32a52b2fc29a_key=$encrypted_32a52b2fc29a_key -a reborn -l $OPENSHIFT_USER -p $OPENSHIFT_PASS
-- yes | rhc env set encrypted_32a52b2fc29a_iv=$encrypted_32a52b2fc29a_iv -a reborn -l $OPENSHIFT_USER -p $OPENSHIFT_PASS
+- yes | rhc env set encrypted_32a52b2fc29a_key=$encrypted_32a52b2fc29a_key -a reborn
+  -l $OPENSHIFT_USER -p $OPENSHIFT_PASS
+- yes | rhc env set encrypted_32a52b2fc29a_iv=$encrypted_32a52b2fc29a_iv -a reborn
+  -l $OPENSHIFT_USER -p $OPENSHIFT_PASS
 deploy:
   provider: openshift
   user: $OPENSHIFT_USER
