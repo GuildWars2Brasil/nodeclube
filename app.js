@@ -170,7 +170,7 @@ if (config.debug) {
 }
 
 if (!module.parent) {
-  app.listen(config.port, function () {
+  app.listen(config.port, config.ip, function () {
     logger.info('NodeClub listening on ip', config.ip, 'and port', config.port);
     logger.info('God bless love....');
     logger.info('You can debug your app with http://' + config.hostname + ':' + config.port);
