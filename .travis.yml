@@ -21,8 +21,3 @@ before_install:
 - $CXX --version
 script: make test-cov
 after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-deploy:
-  provider: gae
-  keyfile: client-secret.json
-  project: gw2brasil-reborn
-  default: true
