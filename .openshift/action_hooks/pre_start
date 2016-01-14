@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd $OPENSHIFT_REPO_DIR
+
+openssl aes-256-cbc -K $encrypted_32a52b2fc29a_key -iv $encrypted_32a52b2fc29a_iv
+  -in config.js.enc -out config.js -d

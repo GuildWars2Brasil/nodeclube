@@ -20,7 +20,11 @@ before_install:
   -in config.js.enc -out config.js -d
 - $CXX --version
 script: make test-cov
-after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+after_success:
+  cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+before-deploy:
+- rhc env set encrypted_32a52b2fc29a_key=$encrypted_32a52b2fc29a_key -a reborn
+- rhc env set encrypted_32a52b2fc29a_iv=$encrypted_32a52b2fc29a_iv -a reborn
 deploy:
   provider: openshift
   user: guildwars2brasil@gmail.com
