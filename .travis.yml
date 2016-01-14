@@ -21,3 +21,9 @@ before_install:
 - $CXX --version
 script: make test-cov
 after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+deploy:
+  provider: openshift
+  user: "guildwars2brasil@gmail.com",
+  password: "***REMOVED***"
+  domain: "guildwars2brasil"
+  app: "reborn"
