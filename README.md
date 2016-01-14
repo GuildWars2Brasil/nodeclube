@@ -9,7 +9,7 @@ Nodeclub
 [travis-image]: https://img.shields.io/travis/GuildWars2Brasil/nodeclub/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/GuildWars2Brasil/nodeclube
 [coverage-image]: https://img.shields.io/coveralls/GuildWars2Brasil/nodeclub.svg?style=flat-square
-[coverage-url]: https://coveralls.io/r/GuildWars2Brasil/nodeclub?branch=master
+[coverage-url]: https://coveralls.io/github/GuildWars2Brasil/nodeclube?branch=master
 [david-image]: https://img.shields.io/david/GuildWars2Brasil/nodeclub.svg?style=flat-square
 [david-url]: https://david-dm.org/GuildWars2Brasil/nodeclub
 [node-image]: https://img.shields.io/badge/node.js-%3E=_4.2-green.svg?style=flat-square
