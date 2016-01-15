@@ -1,0 +1,30 @@
+<%- partial('../sidebar') %>
+
+<div id='content'>
+  <div class='panel'>
+    <div class='header'>
+      <ul class='breadcrumb'>
+        <li><a href='/'>Home</a><span class='divider'>/</span></li>
+        <li class='active'>Colabore</li>
+      </ul>
+    </div>
+    <div class='inner topic'>
+      <div class="topic_content">
+        <%- markdown(multiline(function () {
+/*
+Este fórum é livre, qualquer pessoa pode contribuir para melhorar o nosso ambiente.
+
+Para sugerir mudanças ou reportar falhas utilize o nosso [Board no Waffle](https://waffle.io/GuildWars2Brasil/nodeclube).
+
+Se você tem conhecimentos de programação e estiver disponível sua ajuda é bem vinda!
+
+O nosso repositório está hospedado em: https://github.com/GuildWars2Brasil/nodeclube/
+Após fazer as modificações basta fazer um pull-request, e após revisão publicaremos a modificação no site. Grato por sua contribuição!
+
+Se você quer ser um moderador, entre em contato conosco através do email: admin@guildwars2brasil.com.br.
+*/
+        })) %>
+      </div>
+    </div>
+  </div>
+</div>
