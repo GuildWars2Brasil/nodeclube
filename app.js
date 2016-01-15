@@ -82,6 +82,10 @@ if (config.debug) {
   app.use(LoaderConnect.less(__dirname)); // 测试环境用，编译 .less on the fly
 }
 app.use('/public', express.static(staticDir));
+
+// Route Upload Dir
+app.use(config.upload.url, express.static(config.upload.path));
+
 app.use('/agent', proxyMiddleware.proxy);
 
 // 通用的中间件
