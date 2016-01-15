@@ -1,9 +1,9 @@
-[![Stories in Ready](https://badge.waffle.io/GuildWars2Brasil/nodeclube.png?label=ready&title=Ready)](https://waffle.io/GuildWars2Brasil/nodeclube)
 Nodeclub
 =
 
 [![build status][travis-image]][travis-url]
 [![Coverage Status][coverage-image]][coverage-url]
+[![Stories in Ready][waffle-image]][waffle-url]
 [![David deps][david-image]][david-url]
 [![node version][node-image]][node-url]
 
@@ -11,6 +11,8 @@ Nodeclub
 [travis-url]: https://travis-ci.org/GuildWars2Brasil/nodeclube
 [coverage-image]: https://img.shields.io/coveralls/GuildWars2Brasil/nodeclube.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/GuildWars2Brasil/nodeclube?branch=master
+[waffle-image]: https://badge.waffle.io/GuildWars2Brasil/nodeclube.png?label=ready&title=Ready
+[waffle-url]: https://waffle.io/GuildWars2Brasil/nodeclube
 [david-image]: https://img.shields.io/david/GuildWars2Brasil/nodeclube.svg?style=flat-square
 [david-url]: https://david-dm.org/GuildWars2Brasil/nodeclube
 [node-image]: https://img.shields.io/badge/node.js-%3E=_4.2-green.svg?style=flat-square
