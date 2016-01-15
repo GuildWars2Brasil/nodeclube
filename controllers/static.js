@@ -32,6 +32,6 @@ exports.robots = function (req, res, next) {
   }));
 };
 
-exports.colabore = function (req, res, next) {
-  res.render('static/colabore');
+exports.api = function (req, res, next) {
+  res.render('static/api');
 };
