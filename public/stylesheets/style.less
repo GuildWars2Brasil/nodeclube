@@ -805,15 +805,22 @@ textarea#title {
   max-width: 1400px;
 }
 
+.navbar .container > * {
+  vertical-align: middle;
+}
+
 .navbar .brand {
   padding: 4px 0px 0px 20px;
-  width: 120px;
+  width: 100px;
   padding: 3px 20px;
-  height: 28px;
+  float: none;
+  display: inline-block;
 }
 
 .navbar .navbar-search {
-  margin-top: 6px;
+  display: inline-block;
+  float: none;
+  vertical-align: baseline;
 }
 
 .navbar .search-query {
@@ -833,6 +840,10 @@ textarea#title {
   &:focus, &.focused {
     background-color: white;
   }
+}
+
+.navbar .nav {
+  margin-top: 34px;
 }
 
 .navbar .nav .divider-vertical {
