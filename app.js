@@ -170,10 +170,11 @@ if (config.debug) {
 }
 
 if (!module.parent) {
+  var hostname = (process.env.NODE_ENV === 'production')?config.hostname:'127.0.0.1';
   app.listen(config.port, config.ip, function () {
     logger.info('NodeClub listening on ip', config.ip, 'and port', config.port);
     logger.info('We are ready to rock....');
-    logger.info('You can debug your app with http://' + config.hostname + ':' + config.port);
+    logger.info('You can debug your app with http://' + hostname + ':' + config.port);
     logger.info('');
   });
 }
