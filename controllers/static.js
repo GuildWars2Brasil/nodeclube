@@ -35,3 +35,7 @@ exports.robots = function (req, res, next) {
 exports.api = function (req, res, next) {
   res.render('static/api');
 };
+
+exports.colabore = function (req, res, next) {
+  res.render('static/colabore');
+};
