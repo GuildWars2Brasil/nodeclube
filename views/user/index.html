@@ -51,12 +51,12 @@
           <% } %>
         </ul>
       </div>
-      <p class='col_fade'>Usuário a <%= user.create_at_ago() %></p>
+      <p class='col_fade'>Registrado a <%= user.create_at_ago() %></p>
       <% if (current_user && current_user.is_admin) { %>
       <% if (!user.is_star) { %>
-      <span class='span-common' id='set_star_btn' action='set_star'>Favoritar</span>
+      <span class='span-common' id='set_star_btn' action='set_star'>Seguir</span>
       <% } else { %>
-      <span class='span-common' id='set_star_btn' action='cancel_star'>Desfavoritar</span>
+      <span class='span-common' id='set_star_btn' action='cancel_star'>Deixar de seguir</span>
       <% } %>
 
       <% if (!user.is_block) { %>

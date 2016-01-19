@@ -72,22 +72,21 @@ var config = {
   session_secret: 'node_club_secret', // 务必修改
   auth_cookie_name: 'node_club',
 
-    // 程序运行的端口
-    port: process.env.OPENSHIFT_NODEJS_PORT || 8080,
-    ip: process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
+  port: process.env.OPENSHIFT_NODEJS_PORT || 8080,
+  ip: process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
 
-    // 话题列表显示的话题数量
-    list_topic_count: 20,
+  // 话题列表显示的话题数量
+  list_topic_count: 20,
 
-    // RSS配置
-    rss: {
+  // RSS配置
+  rss: {
         title: 'Guild Wars 2 Brasil - Reborn',
         link: 'http://reborn.guildwars2brasil.com.br',
         language: 'pt-br',
         description: 'Fórum da Comunidade Brasileira de Guild Wars 2',
         //最多获取的RSS Item数量
         max_rss_items: 50
-    },
+  },
 
   // 邮箱配置
   mail_opts: {
@@ -140,8 +139,8 @@ var config = {
 
   file_limit: '1MB',
 
-    // 版块
-    tabs: [
+  // 版块
+  tabs: [
     ['geral', 'geral'],
     ['duvidas', 'dúvidas'],
     ['guildas', 'guildas'],
