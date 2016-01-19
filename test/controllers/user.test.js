@@ -34,7 +34,7 @@ describe('test/controllers/user.test.js', function () {
       request.get('/user/' + testUser.loginname)
       .expect(200, function (err, res) {
         var texts = [
-          'Usuário a',
+          'Registrado a',
           'Essa pessoa nos deixou no vácuo, não preencheu nenhuma assinatura :(',
           'Últimos tópicos',
           'Nenhum tópico',
