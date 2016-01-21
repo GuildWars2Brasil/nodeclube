@@ -182,9 +182,9 @@ describe('test/controllers/sign.test.js', function () {
     it('should update search pass', function (done) {
       done = pedding(done, 2);
       mm(mailService, 'sendMail', function (data) {
-        data.from.should.equal('Guild Wars 2 Brasil - Reborn <postmaster@mg.guildwars2brasil.com.br>');
+        data.from.should.equal('Guild Wars 2 Brasil <postmaster@mg.guildwars2brasil.com.br>');
         data.to.should.match(new RegExp(loginname));
-        data.subject.should.equal('Guild Wars 2 Brasil - Reborn Recuperação de senha');
+        data.subject.should.equal('Guild Wars 2 Brasil - Recuperação de senha');
         data.html.should.match(new RegExp('<p>Olá：' + loginname));
         resetKey = data.html.match(/key=(.+?)&/)[1];
         done();

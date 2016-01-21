@@ -10,7 +10,7 @@ var config = {
 
   get mini_assets() { return !this.debug; }, // 是否启用静态文件的合并压缩，详见视图中的Loader
 
-    name: 'Guild Wars 2 Brasil - Reborn', // 社区名字
+    name: 'Guild Wars 2 Brasil', // 社区名字
     description: 'Fórum Guild Wars 2 Brasil', // 社区的描述
     keywords: 'guild wars 2, brasil, brazil, forum',
 
@@ -80,8 +80,8 @@ var config = {
 
   // RSS配置
   rss: {
-        title: 'Guild Wars 2 Brasil - Reborn',
-        link: 'http://reborn.guildwars2brasil.com.br',
+        title: 'Guild Wars 2 Brasil',
+        link: 'http://www.guildwars2brasil.com.br',
         language: 'pt-br',
         description: 'Fórum da Comunidade Brasileira de Guild Wars 2',
         //最多获取的RSS Item数量

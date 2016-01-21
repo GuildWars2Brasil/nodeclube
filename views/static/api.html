@@ -10,115 +10,115 @@
       <div class="topic_content">
         <%- markdown(multiline(function () {
 /*
-### 主题
+### API
 
-#### get /topics 主题首页
+#### get /topics Índice de Tópicos
 
-接收 get 参数
+Parâmetros de requisição GET
 
-* page `Number` 页数
-* tab `String` 主题分类。目前有 `ask` `share` `job` `good`
-* limit `Number` 每一页的主题数量
-* mdrender `String` 当为 `false` 时，不渲染。默认为 `true`，渲染出现的所有 markdown 格式文本。
+* page `Number` Define página
+* tab `String` Aba `all` `good` `geral` `duvidas` `guildas` `pvp` `pve` `off-topic`
+* limit `Number` Limite de itens
+* mdrender `String` Quando é `false` retorna código fonte. Quando é `true` formata texto após formatação de markdown
 
-示例：[/api/v1/topics](/api/v1/topics)
+Exemplo：[/api/v1/topics](/api/v1/topics)
 
-#### get /topic/:id 主题详情
+#### get /topic/:id Detalhes do Tópico
 
-接收 get 参数
+Parâmetros de requisição GET
 
-* mdrender `String` 当为 `false` 时，不渲染。默认为 `true`，渲染出现的所有 markdown 格式文本。
+* mdrender `String` Quando é `false` retorna código fonte. Quando é `true` formata texto após formatação de markdown
 
-示例：[/api/v1/topic/5433d5e4e737cbe96dcef312](/api/v1/topic/5433d5e4e737cbe96dcef312)
-co
-#### post /topics 新建主题
+Exemplo：[/api/v1/topic/5433d5e4e737cbe96dcef312](/api/v1/topic/5433d5e4e737cbe96dcef312)
 
-接收 post 参数
+#### post /topics Novo Tópico
 
-* accesstoken `String` 用户的 accessToken
-* title `String` 标题
-* tab `String` 目前有 `ask` `share` `job`
-* content `String` 主体内容
+Parâmetros de requisição POST
 
-返回值示例
+* accesstoken `String` accessToken do usuário
+* title `String` Título
+* tab `String` Aba `all` `good` `geral` `duvidas` `guildas` `pvp` `pve` `off-topic`
+* content `String` Conteúdo principal
+
+Exemplo de valores de retorno
 
 ```js
 {success: true, topic_id: '5433d5e4e737cbe96dcef312'}
 ```
 
-### 评论
+### Resposta de tópico
 
-#### post /topic/:topic_id/replies 新建评论
+#### post /topic/:topic_id/replies Novas respostas
 
-接收 post 参数
+Parâmetros de requisição POST
 
-* accesstoken `String` 用户的 accessToken
-* content `String` 评论的主体
-* reply_id `String` 如果这个评论是对另一个评论的回复，请务必带上此字段。这样前端就可以构建出评论线索图。
+* accesstoken `String` accessToken do usuário
+* content `String` Conteúdo da resposta
+* reply_id `String` Se este post é uma resposta a outro post, certifeque-se de preencher este campo para podermos inserir um link de referência ao outro post.
 
-返回值示例
+Exemplo de valores de retorno
 
 ```js
 {success: true, reply_id: '5433d5e4e737cbe96dcef312'}
 ```
 
-#### post /reply/:reply_id/ups 为评论点赞
+#### post /reply/:reply_id/ups Likes na resposta
 
-接受 post 参数
+Parâmetros recebidos do POST
 
 * accesstoken `String`
 
-接口会自动判断用户是否已点赞，如果否，则点赞；如果是，则取消点赞。点赞的动作反应在返回数据的 `action` 字段中，`up` or `down`。
+接口会自动判断用户是否已点赞，如果否，则点赞；如果是，则取消点赞。点赞的动作反应在返回数据的 `action` 字段中，`up` or `down`。 (desculpe ainda não consegui traduzir isso, carece de contexto ~KlarkC)
 
-返回值示例
+Exemplo de valores de retorno
 
 ```js
 {"success": true, "action": "down"}
 ```
 
-### 用户
+### Usuário
 
-#### get /user/:loginname 用户详情
+#### get /user/:loginname Detalhes do usuário
 
-示例：[/api/v1/user/alsotang](/api/v1/user/alsotang)
+Exemplo：[/api/v1/user/alsotang](/api/v1/user/alsotang)
 
-#### post /accesstoken 验证 accessToken 的正确性
+#### post /accesstoken Verifica autenticidade do accessToken
 
-接收 post 参数
+Parâmetros de requisição POST
 
-* accesstoken `String` 用户的 accessToken
+* accesstoken `String` accessToken do usuário
 
-如果成功匹配上用户，返回成功信息。否则 403。
+Retorna success ou erro 403
 
-返回值示例
+Exemplo de valores de retorno
 
 ```js
 {success: true, loginname: req.user.loginname}
 ```
 
-### 消息通知
+### Notificação de mensagens
 
-#### get /message/count 获取未读消息数
+#### get /message/count Recebe o número de mensagens não lidas
 
-接收 get 参数
+Parâmetros de requisição GET
 
 * accesstoken `String`
 
-返回值示例
+Exemplo de valores de retorno
 
 ```js
 { data: 3 }
 ```
 
 
-#### get /messages 获取已读和未读消息
+#### get /messages Recebe mensagens lidas e não lidas
 
-接收 get 参数
+Parâmetros de requisição GET
 
 * accesstoken `String`
-* mdrender `String` 当为 `false` 时，不渲染。默认为 `true`，渲染出现的所有 markdown 格式文本。
+* mdrender `String` Quando é `false` retorna código fonte. Quando é `true` formata texto após formatação de markdown
 
-返回值示例
+Exemplo de valores de retorno
 
 ```js
 {
@@ -151,24 +151,24 @@ co
 }
 ```
 
-#### post /message/mark_all 标记全部已读
+#### post /message/mark_all Marca tudo lido
 
-接收 post 参数
+Parâmetros de requisição POST
 
 * accesstoken `String`
 
-返回值示例
+Exemplo de valores de retorno
 
 ```js
 { success: true,
   marked_msgs: [ { id: '544ce385aeaeb5931556c6f9' } ] }
 ```
 
-### 知识点
+### Autorização de Acesso
 
-1. 如何获取 accessToken？
-    用户登录后，在设置页面可以看到自己的 accessToken。
-    建议各移动端应用使用手机扫码的形式登录，验证使用 `/accesstoken` 接口，登录后长期保存 accessToken。
+1. Como obter accessToken？
+    Depois do usuário logar, na página de Configuração você pode encontrar o accessToken.
+    Recomenda-se que, num cliente mobile, permita-se scanear o QRCode para efetuar login automático via `/accesstoken`
 
 */
         })) %>
