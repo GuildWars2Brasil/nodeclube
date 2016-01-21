@@ -22,7 +22,7 @@ describe('test/controllers/static.test.js', function () {
   it('should get /getstart', function (done) {
     request.get('/getstart').expect(200)
     .end(function (err, res) {
-      res.text.should.containEql('Node.js');
+      res.text.should.containEql('Central de Ajuda');
       done(err);
     });
   });
