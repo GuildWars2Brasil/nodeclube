@@ -247,7 +247,7 @@ describe('test/controllers/user.test.js', function () {
         res.body.should.eql({status: 'success'});
         done(err);
       })
-    })
+    });
 
     it('should wrong when user is not exists', function (done) {
       request.post('/user/not_exists_user/block')
@@ -257,6 +257,18 @@ describe('test/controllers/user.test.js', function () {
       .set('Cookie', support.adminUserCookie)
       .expect(500, function (err, res) {
         res.text.should.containEql('user is not exists')
+        done(err);
+      })
+    });
+
+    it('should wrong when user is admin', function (done) {
+      request.post('/user/' + support.normalUser.loginname + '/block')
+      .send({
+        action: 'set_block'
+      })
+      .set('Cookie', support.adminUserCookie)
+      .expect(500, function (err, res) {
+        res.text.should.containEql('cannot ban admin user');
         done(err);
       })
     })
