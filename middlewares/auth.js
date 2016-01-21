@@ -10,11 +10,11 @@ var UserProxy  = require('../proxy').User;
  */
 exports.adminRequired = function (req, res, next) {
   if (!req.session.user) {
-    return res.render('notify/notify', { error: '你还没有登录。' });
+    return res.render('notify/notify', { error: 'Você não está logado' });
   }
 
   if (!req.session.user.is_admin) {
-    return res.render('notify/notify', { error: '需要管理员权限。' });
+    return res.render('notify/notify', { error: 'Você precisa de privilégios de administrador' });
   }
 
   next();
@@ -25,7 +25,7 @@ exports.adminRequired = function (req, res, next) {
  */
 exports.userRequired = function (req, res, next) {
   if (!req.session || !req.session.user) {
-    return res.status(403).send('forbidden!');
+    return res.status(403).send('acesso negado!');
   }
 
   next();
@@ -38,7 +38,7 @@ exports.blockUser = function () {
     }
 
     if (req.session.user && req.session.user.is_block && req.method !== 'GET') {
-      return res.status(403).send('您已被管理员屏蔽了。有疑问请联系 @alsotang。');
+      return res.status(403).send('Você foi banido por um administrador. Entre em contato através do email admin@guildwars2brasil.com.br em caso de dúvidas.');
     }
     next();
   };
