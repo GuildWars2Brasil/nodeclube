@@ -81,7 +81,7 @@ var config = {
   // RSS配置
   rss: {
         title: 'Guild Wars 2 Brasil',
-        link: 'http://guildwars2brasil.com.br',
+        link: 'http://www.guildwars2brasil.com.br',
         language: 'pt-br',
         description: 'Fórum da Comunidade Brasileira de Guild Wars 2',
         //最多获取的RSS Item数量
