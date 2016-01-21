@@ -34,18 +34,18 @@
             '<div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editorToolImageTitle" aria-hidden="true">',
                 '<div class="modal-header">',
                     '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>',
-                    '<h3 id="editorToolImageTitle">添加连接</h3>',
+                    '<h3 id="editorToolImageTitle">Adicionar link</h3>',
                 '</div>',
                 '<div class="modal-body">',
                     '<form class="form-horizontal">',
                         '<div class="control-group">',
-                            '<label class="control-label">标题</label>',
+                            '<label class="control-label">título</label>',
                             '<div class="controls">',
-                                '<input type="text" name="title" placeholder="Title">',
+                                '<input type="text" name="title" placeholder="Título">',
                             '</div>',
                         '</div>',
                         '<div class="control-group">',
-                            '<label class="control-label">连接</label>',
+                            '<label class="control-label">link</label>',
                             '<div class="controls">',
                                 '<input type="text" name="link" value="http://" placeholder="Link">',
                             '</div>',
@@ -53,7 +53,7 @@
                     '</form>',
                 '</div>',
                 '<div class="modal-footer">',
-                    '<button class="btn btn-primary" role="save">确定</button>',
+                    '<button class="btn btn-primary" role="save">Inserir</button>',
                 '</div>',
             '</div>'
         ].join('')).appendTo($body);
@@ -87,11 +87,11 @@
             '<div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editorToolImageTitle" aria-hidden="true">',
                 '<div class="modal-header">',
                     '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>',
-                    '<h3 id="editorToolImageTitle">图片</h3>',
+                    '<h3 id="editorToolImageTitle">Título</h3>',
                 '</div>',
                 '<div class="modal-body">',
                     '<div class="upload-img">',
-                        '<div class="button">上传图片</div>',
+                        '<div class="button">Upload</div>',
                         '<span class="tip"></span>',
                         '<div class="alert alert-error hide"></div>',
                     '</div>',
@@ -153,7 +153,7 @@
             }
             else{
                 self.removeFile();
-                self.showError(res.msg || '服务器走神了，上传失败');
+                self.showError(res.msg || 'O servidor não responde, falha ao fazer upload');
             }
         });
 
@@ -167,19 +167,19 @@
             switch(type){
                 case 'Q_EXCEED_SIZE_LIMIT':
                 case 'F_EXCEED_SIZE':
-                    self.showError('文件太大了, 不能超过2M');
+                    self.showError('O arquivo é muito grande, não pode exceder 1MB');
                     break;
                 case 'Q_TYPE_DENIED':
-                    self.showError('只能上传图片');
+                    self.showError('É permitido apenas o envio de imagens');
                     break;
                 default:
-                    self.showError('发生未知错误');
+                    self.showError('Ocorreu um erro desconhecido');
             }
         });
 
         this.uploader.on('uploadError', function(){
             self.removeFile();
-            self.showError('服务器走神了，上传失败');
+            self.showError('O servidor não responde, falha ao fazer upload');
         });
     };
 
@@ -194,7 +194,7 @@
         //var self = this;
         this.file = file;
         this.$uploadBtn.hide();
-        this.$uploadTip.html('正在上传: ' + file.name).show();
+        this.$uploadTip.html('Upload: ' + file.name).show();
         this.hideError();
     };
 
@@ -208,7 +208,7 @@
 
     ToolImage.prototype.showProgress = function(file, percentage){
         this.$uploadTip
-            .html('正在上传: ' + file.name + ' ' + percentage + '%')
+            .html('upload: ' + file.name + ' ' + percentage + '%')
             .show();
     };
 
