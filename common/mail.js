@@ -57,7 +57,7 @@ exports.sendActiveMail = function (who, token, name) {
 exports.sendResetPassMail = function (who, token, name) {
   var from = util.format('%s <%s>', config.name, config.mail_opts.auth.user);
   var to = who;
-  var subject = config.name + ' Recuperação de senha';
+  var subject = config.name + ' - Recuperação de senha';
   var html = '<p>Olá：' + name + '</p>' +
     '<p>Recebemos o seu pedido para redefinir a sua senha, por favor clique no link a seguir no prazo de 24h para redefinir a sua senha：</p>' +
     '<a href="' + SITE_ROOT_URL + '/reset_pass?key=' + token + '&name=' + name + '">Redefinir sua senha</a>' +
