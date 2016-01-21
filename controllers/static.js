@@ -14,7 +14,7 @@ exports.faq = function (req, res, next) {
 
 exports.getstart = function (req, res) {
   res.render('static/getstart', {
-    pageTitle: 'Começando'
+    pageTitle: 'Ajuda'
   });
 };
 
