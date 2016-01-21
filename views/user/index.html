@@ -5,13 +5,14 @@
     <div class='header'>
       <ul class='breadcrumb'>
         <li><a href='/'>Home</a><span class='divider'>/</span></li>
+        <li>Perfil</li>
       </ul>
     </div>
     <div class='inner userinfo'>
       <div class='user_big_avatar'>
         <img src="<%= proxy(user.avatar_url) %>" class="user_avatar" title="<%= user.loginname %>"/>
       </div>
-      <a class='dark'><%= user.loginname %></a>
+      <h3><%= user.loginname %></h3>
 
       <div class='user_profile'>
         <ul class='unstyled'>
@@ -127,10 +128,10 @@
       $.post('/user/' + action, params, function (data) {
         if (data.status === 'success') {
           if (action === 'set_star') {
-            $me.html('Favoritar');
+            $me.html('Seguindo');
             $me.attr('action', 'cancel_star');
           } else {
-            $me.html('Desfavoritar');
+            $me.html('Não Seguindo');
             $me.attr('action', 'set_star');
           }
         }
@@ -150,10 +151,9 @@
       $.post('/user/<%- user.loginname %>/block', params, function (data) {
         if (data.status === 'success') {
           if (action === 'set_block') {
-            $me.html('Desbloquear usuário');
-            $me.attr('action', 'cancel_block');
+            $me.html('Bloqueado', 'cancel_block');
           } else if (action === 'cancel_block') {
-            $me.html('Bloquear usuário');
+            $me.html('Desbloqueado');
             $me.attr('action', 'set_block');
           }
         }

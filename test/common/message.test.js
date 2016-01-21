@@ -46,7 +46,7 @@ describe('test/common/message.test.js', function () {
           .expect(200, function (err, res) {
             var texts = [
               author.loginname,
-              'respondeu a seu tópico',
+              'postou em seu tópico',
               topic.title,
             ];
             texts.forEach(function (text) {

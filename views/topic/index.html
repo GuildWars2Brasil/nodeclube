@@ -148,7 +148,7 @@
             <textarea class='editor' name='r_content' rows='8'></textarea>
 
             <div class='editor_buttons'>
-              <input class='span-primary submit_btn' type="submit" data-loading-text="Postando..." value="Post <%= topic.lock ? '(Este tópico está trancado)' : ''%>" <%= topic.lock ? 'disabled="disabled"' : ''%>>
+              <input class='span-primary submit_btn' type="submit" data-loading-text="Salvando..." value="Enviar <%= topic.lock ? '(Este tópico está trancado)' : ''%>" <%= topic.lock ? 'disabled="disabled"' : ''%>>
             </div>
           </div>
 
@@ -404,7 +404,7 @@
           if(chats.length > 0) {
             chats.reverse();
 
-            $repliesHistoryContent.append('<div class="title">Ver respostas</div>');
+            $repliesHistoryContent.append('<div class="title">Ver posts</div>');
             chats.forEach(function (pair, idx) {
               var $chat = $repliesHistoryContent.append('<div class="item"></div>');
               $chat.append(pair[0]); // 头像
