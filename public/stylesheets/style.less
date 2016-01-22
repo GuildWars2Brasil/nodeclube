@@ -1259,9 +1259,11 @@ textarea.editor {
 
 .replies_history {
   position: absolute;
-  border: 1px solid @dark-theme-divider-color;
   background-color: @dark-theme-background-color;
-  box-shadow: 2px 2px 6px @dark-theme-divider-color;;
+  border: 1px solid @dark-theme-divider-color;
+  /*
+  box-shadow: 2px 2px 6px @dark-theme-divider-color;
+  */
   padding: 10px;
   min-width: 130px;
   max-width: 300px;
@@ -1321,7 +1323,7 @@ textarea.editor {
   .anchor {
     width: 0;
     height: 0;
-    border-right: 10px solid #aaa;
+    border-right: 10px solid @dark-theme-divider-color;
     border-top: 6px solid transparent;
     border-bottom: 6px solid transparent;
     border-left: 0;
