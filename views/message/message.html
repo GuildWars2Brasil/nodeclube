@@ -5,32 +5,32 @@
     <% } %>
     <% if(message.type == 'reply'){ %>
 		<span>
-			<a href="/user/<%= message.author.loginname %>" target='_blank'><%= message.author.loginname %></a>
+			<a href="/user/<%= message.author.loginname %>"><%= message.author.loginname %></a>
 			postou em seu tópico
-			<a href="/topic/<%- message.topic._id + (message.reply ? '#' + message.reply._id : '') %>" target='_blank'><%=
+			<a href="/topic/<%- message.topic._id + (message.reply ? '#' + message.reply._id : '') %>"><%=
         message.topic.title %></a>
 		</span>
     <% } %>
     <% if(message.type == 'reply2'){ %>
 		<span>
-			<a href="/user/<%= message.author.loginname %>" target='_blank'><%= message.author.loginname %></a>
+			<a href="/user/<%= message.author.loginname %>"><%= message.author.loginname %></a>
 			no tópico
-			<a href="/topic/<%= message.topic._id + (message.reply ? '#' + message.reply._id : '') %>" target='_blank'><%=
+			<a href="/topic/<%= message.topic._id + (message.reply ? '#' + message.reply._id : '') %>"><%=
         message.topic.title %></a>
 			respondeu ao seu post
 		</span>
     <% } %>
     <% if(message.type == 'follow'){ %>
 	<span>
-		<a href="/user/<%= message.author.loginname %>" target='_blank'><%= message.author.loginname %></a>
+		<a href="/user/<%= message.author.loginname %>"><%= message.author.loginname %></a>
 		关注了你
 	</span>
     <% } %>
     <% if (message.type == 'at'){ %>
 		<span>
-			<a href="/user/<%= message.author.loginname %>" target='_blank'><%= message.author.loginname %></a>
+			<a href="/user/<%= message.author.loginname %>"><%= message.author.loginname %></a>
 			mencionou você no tópico
-			<a href="/topic/<%= message.topic._id + (message.reply ? '#' + message.reply._id : '') %>" target='_blank'><%=
+			<a href="/topic/<%= message.topic._id + (message.reply ? '#' + message.reply._id : '') %>"><%=
         message.topic.title %></a>
 		</span>
     <% } %>
