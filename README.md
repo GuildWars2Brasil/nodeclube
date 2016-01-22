@@ -54,6 +54,19 @@ Execução de testes coverage
 $ make test-cov
 ```
 
+## Integração Contínua (opcional)
+O fórum se integra ao [Openshift](http://openshift.com) para hospedagem e ao [Travis](http://travis-ci.org) para testes e deploy. Para utilizar a integração siga estes passos:
+
+```
+1. Executar a instalação local, conforme instruções de [Instalação](#Instalação)
+2. Cadastrar o repositório no Travis
+3. Encriptar o arquivo de configuração com o comando `travis encrypt-file config.js --add`
+4. Modificar arquivo .openshift/pre_start com chaves para descriptografar os dados. Essas chaves estão disponíveis no arquivo .travis.yml na sessão before_install.
+5. Criar aplicação no Openshift
+6. Adicionar dados da aplicação e do repositório no arquivo .travis.yml, na sessão deploy
+7. Efetuar commit das modificações e push do repositório
+```
+
 ## Contribuição
 
 Tem algum comentário ou sugestão, quer saber o que está sendo planejado? Todos estão convidados a participar no [nosso board](https://waffle.io/GuildWars2Brasil/nodeclube). Você também pode contribuir diretamente ao upstream [Nodeclub](https://github.com/cnodejs/nodeclub/)
