@@ -41,14 +41,6 @@ body {
   position: relative;
 }
 
-#topic_list {
-  margin: 0;
-
-  .cell:hover {
-    background: @light-primary-color;
-  }
-}
-
 #content {
   padding: 0;
   margin-right: 305px;
@@ -503,8 +495,8 @@ a.user_avatar:hover {
   vertical-align: middle;
   margin-right: 0.5em;
   img {
-    width: 48px;
-    height: 48px;
+    width: 96px;
+    height: 96px;
   }
 }
 
@@ -656,12 +648,22 @@ a.topic_title {
   line-height: 30px;
 }
 
-#topic_list a.topic_title {
-  color: @light-theme-text-color;
-}
+#topic_list {
+  margin: 0;
 
-#topic_list a.topic_title:visited {
-  color: @light-theme-secondary-color;
+  .cell {
+    &:hover {
+      background: @light-primary-color;
+    }
+  }
+
+  & a.topic_title {
+    color: @light-theme-text-color;
+
+    &:visited {
+      color: @light-theme-secondary-color;
+    }
+  }
 }
 
 .topic_title_wrapper {
@@ -966,6 +968,15 @@ textarea#title {
   border-bottom: 1px solid @light-theme-divider-color;
 }
 
+.reply_area .user_avatar img {
+  width: 64px;
+  height: 64px;
+}
+
+.reply_area .reply_content {
+  padding-left: 88px;
+}
+
 .topic_content h1 {
   font-size: 13 * 2.5px;
 }
@@ -1248,9 +1259,11 @@ textarea.editor {
 
 .replies_history {
   position: absolute;
-  border: 1px solid @dark-theme-divider-color;
   background-color: @dark-theme-background-color;
-  box-shadow: 2px 2px 6px #aaa;
+  border: 1px solid @dark-theme-divider-color;
+  /*
+  box-shadow: 2px 2px 6px @dark-theme-divider-color;
+  */
   padding: 10px;
   min-width: 130px;
   max-width: 300px;
@@ -1270,7 +1283,10 @@ textarea.editor {
     }
     &::-webkit-scrollbar-thumb
     {
-      background-color: #999;
+      background-color: @dark-theme-background-color;
+    }
+    & > span {
+      padding-left: 10px;
     }
   }
 
@@ -1307,7 +1323,7 @@ textarea.editor {
   .anchor {
     width: 0;
     height: 0;
-    border-right: 10px solid #aaa;
+    border-right: 10px solid @dark-theme-divider-color;
     border-top: 6px solid transparent;
     border-bottom: 6px solid transparent;
     border-left: 0;
