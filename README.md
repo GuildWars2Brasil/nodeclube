@@ -57,6 +57,7 @@ $ make test-cov
 ## Integração Contínua (opcional)
 O fórum se integra ao [Openshift](http://openshift.com) para hospedagem e ao [Travis](http://travis-ci.org) para testes e deploy. Para utilizar a integração siga estes passos:
 
+```
 1. Executar a instalação local, conforme instruções de [Instalação](#Instalação)
 2. Cadastrar o repositório no Travis
 3. Encriptar o arquivo de configuração com o comando `travis encrypt-file config.js --add`
@@ -64,6 +65,7 @@ O fórum se integra ao [Openshift](http://openshift.com) para hospedagem e ao [T
 5. Criar aplicação no Openshift
 6. Adicionar dados da aplicação e do repositório no arquivo .travis.yml, na sessão deploy
 7. Efetuar commit das modificações e push do repositório
+```
 
 ## Contribuição
 
