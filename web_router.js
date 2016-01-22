@@ -117,4 +117,9 @@ router.post('/auth/github/create', github.create);
 
 router.get('/search', search.index);
 
+// Redirects from older forum
+router.get('/forum/*', function(req, res){
+  res.redirect(301, '/');
+});
+
 module.exports = router;
