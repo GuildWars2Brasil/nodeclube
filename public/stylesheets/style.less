@@ -41,14 +41,6 @@ body {
   position: relative;
 }
 
-#topic_list {
-  margin: 0;
-
-  .cell:hover {
-    background: @light-primary-color;
-  }
-}
-
 #content {
   padding: 0;
   margin-right: 305px;
@@ -656,17 +648,23 @@ a.topic_title {
   line-height: 30px;
 }
 
-#topic_list a.topic_title {
-  color: @light-theme-text-color;
-}
+#topic_list {
+  margin: 0;
 
-#topic_list a.topic_title:visited {
-  color: @light-theme-secondary-color;
-}
+  .cell {
+    &:hover {
+      background: @light-primary-color;
+    }
+  }
 
-#topic_list .user_avatar img {
-  width: 30px;
-  height: 30px;
+  & a.topic_title {
+    color: @light-theme-text-color;
+
+    &:visited {
+      color: @light-theme-secondary-color;
+    }
+  }
+
 }
 
 .topic_title_wrapper {
