@@ -97,11 +97,12 @@ router.post('/reply/:reply_id/up', auth.userRequired, reply.up); // 为评论点
 router.post('/upload', auth.userRequired, topic.upload); //上传图片
 
 // static
-router.get('/about', staticController.about);
+//router.get('/about', staticController.about);
 router.get('/faq', staticController.faq);
 router.get('/getstart', staticController.getstart);
 router.get('/robots.txt', staticController.robots);
 router.get('/api', staticController.api);
+router.get('/colabore', staticController.colabore);
 
 //rss
 router.get('/rss', rss.index);

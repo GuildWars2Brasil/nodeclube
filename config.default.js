@@ -6,24 +6,50 @@ var path = require('path');
 
 var config = {
   // debug 为 true 时，用于本地调试
-  debug: true,
+  debug: process.env.NODE_ENV==='test'?true:false,
 
   get mini_assets() { return !this.debug; }, // 是否启用静态文件的合并压缩，详见视图中的Loader
 
-  name: 'Nodeclub', // 社区名字
-  description: 'CNode：Node.js专业中文社区', // 社区的描述
-  keywords: 'nodejs, node, express, connect, socket.io',
+    name: 'Guild Wars 2 Brasil', // 社区名字
+    description: 'Fórum Guild Wars 2 Brasil', // 社区的描述
+    keywords: 'guild wars 2, brasil, brazil, forum',
 
-  // 添加到 html head 中的信息
-  site_headers: [
-    '<meta name="author" content="EDP@TAOBAO" />'
+    // 添加到 html head 中的信息
+    site_headers: [
+    '<meta name="author" content="admin@guildwars2brasil.com.br" />'
   ],
-  site_logo: '/public/images/logo.png', // default is `name`
-  site_icon: '/public/images/cnode_icon_32.png', // 默认没有 favicon, 这里填写网址
-  // 右上角的导航区
-  site_navs: [
+    site_logo: '/public/images/logo.png', // default is `name`
+
+    // Generator for favicons: http://www.favicon-generator.org
+    site_icons: {
+      apple: [
+        {sizes: "57x57", href: "/public/images/apple-icon-57x57.png"},
+        {sizes: "60x60", href: "/public/images/apple-icon-60x60.png"},
+        {sizes: "72x72", href: "/public/images/apple-icon-72x72.png"},
+        {sizes: "114x114", href: "/public/images/apple-icon-114x114.png"},
+        {sizes: "120x120", href: "/public/images/apple-icon-120x120.png"},
+        {sizes: "144x144", href: "/public/images/apple-icon-144x144.png"},
+        {sizes: "152x152", href: "/public/images/apple-icon-152x152.png"},
+        {sizes: "180x180", href: "/public/images/apple-icon-180x180.png"}
+      ],
+      android: [
+        {sizes: "192x192", href: "/public/images/android-icon-192x192.png"}
+      ],
+      favicon: [
+        {sizes: "32x32", href: "/public/images/favicon-32x32.png"},
+        {sizes: "96x96", href: "/public/images/favicon-96x96.png"},
+        {sizes: "16x16", href: "/public/images/favicon-16x16.png"}
+      ],
+      ms: {href: "/public/images/ms-icon-144x144.png"}
+    },
+
+    site_color: '#170600',
+    site_manifest: '/public/manifest.json',
+
+    // 右上角的导航区
+    site_navs: [
     // 格式 [ path, title, [target=''] ]
-    [ '/about', '关于' ]
+    ['/about', 'Quem Somos']
   ],
   // cdn host，如 http://cnodejs.qiniudn.com
   site_static_host: '', // 静态文件存储域名
@@ -41,24 +67,25 @@ var config = {
   redis_host: '127.0.0.1',
   redis_port: 6379,
   redis_db: 0,
+  redis_pass: '',
 
   session_secret: 'node_club_secret', // 务必修改
   auth_cookie_name: 'node_club',
 
-  // 程序运行的端口
-  port: 3000,
+  port: process.env.OPENSHIFT_NODEJS_PORT || 8080,
+  ip: process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
 
   // 话题列表显示的话题数量
   list_topic_count: 20,
 
   // RSS配置
   rss: {
-    title: 'CNode：Node.js专业中文社区',
-    link: 'http://cnodejs.org',
-    language: 'zh-cn',
-    description: 'CNode：Node.js专业中文社区',
-    //最多获取的RSS Item数量
-    max_rss_items: 50
+        title: 'Guild Wars 2 Brasil',
+        link: 'http://www.guildwars2brasil.com.br',
+        language: 'pt-br',
+        description: 'Fórum da Comunidade Brasileira de Guild Wars 2',
+        //最多获取的RSS Item数量
+        max_rss_items: 50
   },
 
   // 邮箱配置
@@ -106,7 +133,7 @@ var config = {
   // 文件上传配置
   // 注：如果填写 qn_access，则会上传到 7牛，以下配置无效
   upload: {
-    path: path.join(__dirname, 'public/upload/'),
+    path: process.env.OPENSHIFT_DATA_DIR || path.join(__dirname, 'public/upload/'),
     url: '/public/upload/'
   },
 
@@ -114,9 +141,12 @@ var config = {
 
   // 版块
   tabs: [
-    ['share', '分享'],
-    ['ask', '问答'],
-    ['job', '招聘'],
+    ['geral', 'geral'],
+    ['duvidas', 'dúvidas'],
+    ['guildas', 'guildas'],
+    ['pvp', 'pvp'],
+    ['pve', 'pve'],
+    ['off-topic', 'off-topic']
   ],
 
   // 极光推送

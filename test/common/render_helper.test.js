@@ -61,8 +61,8 @@ var a = 1;
 
   describe('#tabName', function () {
     it('should translate', function () {
-      renderHelper.tabName('share')
-        .should.equal('分享')
+      renderHelper.tabName('duvidas')
+        .should.equal('dúvidas')
     })
   })
 

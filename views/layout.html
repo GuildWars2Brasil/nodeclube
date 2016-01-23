@@ -19,8 +19,26 @@
 
   <link title="RSS" type="application/rss+xml" rel="alternate" href="/rss"/>
 
-  <% if (config.site_icon) { %>
-  <link rel="icon" href="<%- staticFile(config.site_icon) %>" type="image/x-icon"/>
+  <% if (config.site_icons) { %>
+    <% for (var i = 0, l = config.site_icons.apple.length; i < l; i++) { %>
+      <link rel="apple-touch-icon" sizes="<%- config.site_icons.apple[i].sizes %>" href="<%- staticFile(config.site_icons.apple[i].href) %>">
+    <% } %>
+    <% for (var i = 0, l = config.site_icons.android.length; i < l; i++) { %>
+      <link rel="icon" type="image/png" sizes="<%- config.site_icons.android[i].sizes %>" href="<%- staticFile(config.site_icons.android[i].href) %>">
+    <% } %>
+    <% for (var i = 0, l = config.site_icons.favicon.length; i < l; i++) { %>
+      <link rel="icon" type="image/png" sizes="<%- config.site_icons.favicon[i].sizes %>" href="<%- staticFile(config.site_icons.favicon[i].href) %>">
+    <% } %>
+    <meta name="msapplication-TileImage" content="<%- staticFile(config.site_icons.ms.href) %>">
+  <% } %>
+
+  <% if (config.site_manifest) { %>
+    <link rel="manifest" href="<%- staticFile(config.site_manifest) %>">
+  <% } %>
+
+  <% if (config.site_color) { %>
+  <meta name="theme-color" content="<%- config.site_color %>">
+  <meta name="msapplication-TileColor" content="<%- config.site_color %>">
   <% } %>
 
   <!-- style -->
@@ -91,11 +109,11 @@
               <% if (current_user.messages_count) { %>
                 <span class='big messages_count'><%= current_user.messages_count %></span>
               <% } %>
-              Mensagens não lidas
+              O que há de novo
             </a>
         </li>
         <% } %>
-        <li><a href='/getstart'>Começando</a></li>
+        <li><a href='/getstart'>Ajuda</a></li>
         <li><a href='/api'>API</a></li>
         <%
         var site_navs = config.site_navs || [];

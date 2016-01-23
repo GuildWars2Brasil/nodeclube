@@ -28,18 +28,18 @@ exports.signup = function (req, res, next) {
 
   // 验证信息的正确性
   if ([loginname, pass, rePass, email].some(function (item) { return item === ''; })) {
-    ep.emit('prop_err', '信息不完整。');
+    ep.emit('prop_err', 'Informações incompletas. ');
     return;
   }
   if (loginname.length < 5) {
-    ep.emit('prop_err', '用户名至少需要5个字符。');
+    ep.emit('prop_err', 'O nome de usuário precisa de pelo menos 5 letras');
     return;
   }
   if (!tools.validateId(loginname)) {
-    return ep.emit('prop_err', '用户名不合法。');
+    return ep.emit('prop_err', 'O nome de usuário é inválido');
   }
   if (!validator.isEmail(email)) {
-    return ep.emit('prop_err', '邮箱不合法。');
+    return ep.emit('prop_err', 'O E-mail é inválido');
   }
   if (pass !== rePass) {
     return ep.emit('prop_err', 'As senhas não correspondem');
@@ -69,7 +69,7 @@ exports.signup = function (req, res, next) {
         // 发送激活邮件
         mail.sendActiveMail(email, utility.md5(email + passhash + config.session_secret), loginname);
         res.render('sign/signup', {
-          success: 'Olá ' + config.name + '！Enviamos uma mensagem para o email cadastro. Por favor ative a sua conta clicando no link dentro deste email.'
+          success: 'Bem-vindo ao ' + config.name + '！Enviamos uma mensagem para o email cadastro. Por favor ative a sua conta clicando no link dentro deste email.'
         });
       });
 
@@ -115,7 +115,7 @@ exports.login = function (req, res, next) {
 
   if (!loginname || !pass) {
     res.status(422);
-    return res.render('sign/signin', { error: '信息不完整。' });
+    return res.render('sign/signin', { error: 'Informações incompletas. ' });
   }
 
   var getUser;
@@ -127,7 +127,7 @@ exports.login = function (req, res, next) {
 
   ep.on('login_error', function (login_error) {
     res.status(403);
-    res.render('sign/signin', { error: '用户名或密码错误' });
+    res.render('sign/signin', { error: 'Nome de usuário ou senha incorretos' });
   });
 
   getUser(loginname, function (err, user) {
@@ -146,7 +146,7 @@ exports.login = function (req, res, next) {
         // 重新发送激活邮件
         mail.sendActiveMail(user.email, utility.md5(user.email + passhash + config.session_secret), user.loginname);
         res.status(403);
-        return res.render('sign/signin', { error: '此帐号还没有被激活，激活链接已发送到 ' + user.email + ' 邮箱，请查收。' });
+        return res.render('sign/signin', { error: 'A sua conta não está ativada, um email foi enviado para ' + user.email + ' contendo um link de ativação.' });
       }
       // store session cookie
       authMiddleWare.gen_session(user, res);
@@ -183,17 +183,17 @@ exports.activeAccount = function (req, res, next) {
     }
     var passhash = user.pass;
     if (!user || utility.md5(user.email + passhash + config.session_secret) !== key) {
-      return res.render('notify/notify', {error: '信息有误，帐号无法被激活。'});
+      return res.render('notify/notify', {error: 'Informação incorreta, a conta não pode ser ativada'});
     }
     if (user.active) {
-      return res.render('notify/notify', {error: '帐号已经是激活状态。'});
+      return res.render('notify/notify', {error: 'A conta já está ativa'});
     }
     user.active = true;
     user.save(function (err) {
       if (err) {
         return next(err);
       }
-      res.render('notify/notify', {success: '帐号已被激活，请登录'});
+      res.render('notify/notify', {success: 'A conta foi ativada, por favor efetue login'});
     });
   });
 };
@@ -205,7 +205,7 @@ exports.showSearchPass = function (req, res) {
 exports.updateSearchPass = function (req, res, next) {
   var email = validator.trim(req.body.email).toLowerCase();
   if (!validator.isEmail(email)) {
-    return res.render('sign/search_pass', {error: '邮箱不合法', email: email});
+    return res.render('sign/search_pass', {error: 'Email inválido', email: email});
   }
 
   // 动态生成retrive_key和timestamp到users collection,之后重置密码进行验证
@@ -214,7 +214,7 @@ exports.updateSearchPass = function (req, res, next) {
 
   User.getUserByMail(email, function (err, user) {
     if (!user) {
-      res.render('sign/search_pass', {error: '没有这个电子邮箱。', email: email});
+      res.render('sign/search_pass', {error: 'Email inexistente', email: email});
       return;
     }
     user.retrieve_key = retrieveKey;
@@ -225,7 +225,7 @@ exports.updateSearchPass = function (req, res, next) {
       }
       // 发送重置密码邮件
       mail.sendResetPassMail(email, retrieveKey, user.loginname);
-      res.render('notify/notify', {success: '我们已给您填写的电子邮箱发送了一封邮件，请在24小时内点击里面的链接来重置密码。'});
+      res.render('notify/notify', {success: 'Um email lhe foi enviado com instruções para redefinição de senha'});
     });
   });
 };
@@ -245,13 +245,13 @@ exports.resetPass = function (req, res, next) {
   User.getUserByNameAndKey(name, key, function (err, user) {
     if (!user) {
       res.status(403);
-      return res.render('notify/notify', {error: '信息有误，密码无法重置。'});
+      return res.render('notify/notify', {error: 'Informação incorreta, a senha não pode ser redefinida'});
     }
     var now = new Date().getTime();
     var oneDay = 1000 * 60 * 60 * 24;
     if (!user.retrieve_time || now - user.retrieve_time > oneDay) {
       res.status(403);
-      return res.render('notify/notify', {error: '该链接已过期，请重新申请。'});
+      return res.render('notify/notify', {error: 'O link expirou, favor solicitar novo email'});
     }
     return res.render('sign/reset', {name: name, key: key});
   });
@@ -267,11 +267,11 @@ exports.updatePass = function (req, res, next) {
   ep.fail(next);
 
   if (psw !== repsw) {
-    return res.render('sign/reset', {name: name, key: key, error: '两次密码输入不一致。'});
+    return res.render('sign/reset', {name: name, key: key, error: 'As senhas não conferem'});
   }
   User.getUserByNameAndKey(name, key, ep.done(function (user) {
     if (!user) {
-      return res.render('notify/notify', {error: '错误的激活链接'});
+      return res.render('notify/notify', {error: 'Link de ativação inválido'});
     }
     tools.bhash(psw, ep.done(function (passhash) {
       user.pass          = passhash;
@@ -283,7 +283,7 @@ exports.updatePass = function (req, res, next) {
         if (err) {
           return next(err);
         }
-        return res.render('notify/notify', {success: '你的密码已重置。'});
+        return res.render('notify/notify', {success: 'A sua senha foi redefinida'});
       });
     }));
   }));

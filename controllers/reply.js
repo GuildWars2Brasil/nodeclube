@@ -18,7 +18,7 @@ exports.add = function (req, res, next) {
 
   var str = validator.trim(content);
   if (str === '') {
-    return res.renderError('A resposta não pode ser vazia!', 422);
+    return res.renderError('O post não pode estar vazio!', 422);
   }
 
   var ep = EventProxy.create();
@@ -30,7 +30,7 @@ exports.add = function (req, res, next) {
       // just 404 page
       return next();
     }
-    
+
     if (topic.lock) {
       return res.status(403).send('Este tópico foi trancado');
     }

@@ -26,6 +26,15 @@ test: install pretest
 		--timeout $(TEST_TIMEOUT) \
 		$(TESTS)
 
+test-local: install pretest
+	@NODE_ENV=test ./node_modules/mocha/bin/mocha \
+		--reporter $(MOCHA_REPORTER) \
+		-r should \
+		-r test/env \
+        --bail \
+		--timeout $(TEST_TIMEOUT) \
+		$(TESTS)
+
 test-cov cov: install pretest
 	@NODE_ENV=test node \
 		node_modules/.bin/istanbul cover --preserve-comments \

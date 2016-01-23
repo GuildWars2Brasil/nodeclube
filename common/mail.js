@@ -33,7 +33,7 @@ exports.sendMail = sendMail;
 exports.sendActiveMail = function (who, token, name) {
   var from    = util.format('%s <%s>', config.name, config.mail_opts.auth.user);
   var to      = who;
-  var subject = config.name + 'Ativação de conta em comunidade';
+  var subject = config.name + ' - Ativação de conta em comunidade';
   var html    = '<p>Olá：' + name + '</p>' +
     '<p>Seja bem vindo a comunidade. Para concluir o seu cadastro, por favor clique no link a seguir：</p>' +
     '<a href  = "' + SITE_ROOT_URL + '/active_account?key=' + token + '&name=' + name + '">Link de ativação</a>' +
@@ -57,7 +57,7 @@ exports.sendActiveMail = function (who, token, name) {
 exports.sendResetPassMail = function (who, token, name) {
   var from = util.format('%s <%s>', config.name, config.mail_opts.auth.user);
   var to = who;
-  var subject = config.name + 'Recuperação de senha';
+  var subject = config.name + ' - Recuperação de senha';
   var html = '<p>Olá：' + name + '</p>' +
     '<p>Recebemos o seu pedido para redefinir a sua senha, por favor clique no link a seguir no prazo de 24h para redefinir a sua senha：</p>' +
     '<a href="' + SITE_ROOT_URL + '/reset_pass?key=' + token + '&name=' + name + '">Redefinir sua senha</a>' +

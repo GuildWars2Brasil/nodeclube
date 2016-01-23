@@ -2,10 +2,11 @@ var app = require('../../app');
 var request = require('supertest')(app);
 
 describe('test/controllers/static.test.js', function () {
+  /*
   it('should get /about', function (done) {
     request.get('/about').expect(200)
       .end(function (err, res) {
-        res.text.should.containEql('CNode 社区由一批热爱 Node.js 技术的工程师发起');
+        res.text.should.containEql('Node.js');
         done(err);
       });
   });
@@ -13,15 +14,15 @@ describe('test/controllers/static.test.js', function () {
   it('should get /faq', function (done) {
     request.get('/faq').expect(200)
       .end(function (err, res) {
-        res.text.should.containEql('CNode 社区和 Node Club 是什么关系？');
+        res.text.should.containEql('Node Club');
         done(err);
       });
   });
-
+  */
   it('should get /getstart', function (done) {
     request.get('/getstart').expect(200)
     .end(function (err, res) {
-      res.text.should.containEql('Node.js 新手入门');
+      res.text.should.containEql('Central de Ajuda');
       done(err);
     });
   });
@@ -30,6 +31,14 @@ describe('test/controllers/static.test.js', function () {
     request.get('/robots.txt').expect(200)
       .end(function (err, res) {
         res.text.should.containEql('User-Agent');
+        done(err);
+      });
+  });
+
+  it('should get /colabore', function (done) {
+    request.get('/colabore').expect(200)
+      .end(function (err, res) {
+        res.text.should.containEql('Nos Ajude!');
         done(err);
       });
   });

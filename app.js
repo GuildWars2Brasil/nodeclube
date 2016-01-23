@@ -15,7 +15,7 @@ if (!config.debug && config.oneapm_key) {
 require('colors');
 var path = require('path');
 var Loader = require('loader');
-var LoaderConnect = require('loader-connect')
+var LoaderConnect = require('loader-connect');
 var express = require('express');
 var session = require('express-session');
 var passport = require('passport');
@@ -82,6 +82,10 @@ if (config.debug) {
   app.use(LoaderConnect.less(__dirname)); // 测试环境用，编译 .less on the fly
 }
 app.use('/public', express.static(staticDir));
+
+// Route Upload Dir
+app.use(config.upload.url, express.static(config.upload.path));
+
 app.use('/agent', proxyMiddleware.proxy);
 
 // 通用的中间件
@@ -97,6 +101,7 @@ app.use(session({
   store: new RedisStore({
     port: config.redis_port,
     host: config.redis_host,
+    pass: config.redis_pass
   }),
   resave: true,
   saveUninitialized: true,
@@ -169,10 +174,11 @@ if (config.debug) {
 }
 
 if (!module.parent) {
-  app.listen(config.port, function () {
-    logger.info('NodeClub listening on port', config.port);
-    logger.info('God bless love....');
-    logger.info('You can debug your app with http://' + config.hostname + ':' + config.port);
+  var hostname = (process.env.NODE_ENV === 'production')?config.hostname:'127.0.0.1';
+  app.listen(config.port, config.ip, function () {
+    logger.info('NodeClub listening on ip', config.ip, 'and port', config.port);
+    logger.info('We are ready to rock....');
+    logger.info('You can debug your app with http://' + hostname + ':' + config.port);
     logger.info('');
   });
 }

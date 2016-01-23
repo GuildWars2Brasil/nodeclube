@@ -12,7 +12,7 @@ describe('test/controllers/message.test.js', function () {
       request(app).get('/my/messages').end(function (err, res) {
         res.statusCode.should.equal(403);
         res.type.should.equal('text/html');
-        res.text.should.containEql('forbidden!');
+        res.text.should.containEql('acesso negado!');
         done(err);
       });
     });
@@ -22,7 +22,7 @@ describe('test/controllers/message.test.js', function () {
       .set('Cookie', support.normalUserCookie)
       .expect(200)
       .end(function (err, res) {
-        res.text.should.containEql('新消息');
+        res.text.should.containEql('Novidades');
         done(err);
       });
     });

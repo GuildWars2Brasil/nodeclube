@@ -17,7 +17,7 @@
   </span>
 
   <% if (topic.reply && topic.reply.author) {%>
-  <a class='last_time pull-right' href="/topic/<%= topic._id %><%- '#' + topic.reply._id %>">
+  <a class='last_time pull-right' href="/topic/<%= topic._id %><%- '#' + topic.reply._id %>" title="Ir para último post">
     <img class="user_small_avatar" src="<%= proxy(topic.reply.author.avatar_url) %>">
     <span class="last_active_time"><%= topic.reply.create_at_ago() %></span>
   </a>
@@ -32,7 +32,7 @@
 
     <%- partial('./_top_good', {topic: topic}) %>
 
-    <a class='topic_title' href='/topic/<%= topic._id %>' title='<%= topic.title %>'>
+    <a class='topic_title dark' href='/topic/<%= topic._id %>' title='<%= topic.title %>'>
       <%= topic.title %>
     </a>
   </div>

@@ -32,7 +32,7 @@ exports.send = function (type, author_id, master_id, topic_id) {
         msg += '@Você';
         break;
       case 'reply':
-        msg += 'Respondeu a seu tópico';
+        msg += 'Postou em seu tópico';
         break;
       default:
         break;

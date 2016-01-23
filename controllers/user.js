@@ -326,6 +326,9 @@ exports.block = function (req, res, next) {
     if (!user) {
       return next(new Error('user is not exists'));
     }
+    if (user.is_admin) {
+      return next(new Error('cannot ban admin user'));
+    }
     if (action === 'set_block') {
       ep.all('block_user',
         function (user) {

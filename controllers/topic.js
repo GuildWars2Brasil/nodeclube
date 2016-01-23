@@ -272,7 +272,7 @@ exports.delete = function (req, res, next) {
       if (err) {
         return res.send({ success: false, message: err.message });
       }
-      res.send({ success: true, message: 'O tópico foi criado' });
+      res.send({ success: true, message: 'O tópico foi excluído' });
     });
   });
 };
