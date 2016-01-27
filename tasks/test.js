@@ -3,16 +3,14 @@
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 
-module.exports = [['install', 'pre-test'], function () {
+module.exports = [['install', 'pre-test'], function (done) {
   process.env.NODE_ENV = 'test';
   var mochaStream = mocha({
     reporter: 'spec',
     require: ['should', './test/env'],
     timeout: 10000
   });
-  return gulp.src('test/**/*.test.js', {read: false})
+  gulp.src('test/**/*.test.js', {read: false})
     .pipe(mochaStream)
-    .once('end', function () {
-      process.exit();
-    });
+    .once('end', done);
 }];
