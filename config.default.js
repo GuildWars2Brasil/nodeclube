@@ -69,8 +69,8 @@ var config = {
   redis_db: 0,
   redis_pass: '',
 
-  session_secret: 'node_club_secret', // 务必修改
-  auth_cookie_name: 'node_club',
+  session_secret: 'gw2brreborn', // 务必修改
+  auth_cookie_name: 'gw2brreborn',
 
   port: process.env.OPENSHIFT_NODEJS_PORT || 8080,
   ip: process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
@@ -93,7 +93,7 @@ var config = {
     host: 'smtp.126.com',
     port: 25,
     auth: {
-      user: 'club@126.com',
+      user: 'postmaster@mg.guildwars2brasil.com.br',
       pass: 'club'
     }
   },
