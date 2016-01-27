@@ -1,6 +1,6 @@
 {
   "name": "nodeclube",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": false,
   "main": "app.js",
   "description": "A Node.js bbs using MongoDB",
