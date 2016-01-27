@@ -1,26 +1,16 @@
-sudo: required
 language: node_js
 env:
-  matrix:
-  - CXX=g++-4.8
   global:
   - secure: uKu0/uk3XKB0UXXEXm7ZOTNxopB799fKumRLJt4JpYaO9mPwex/5zl83ypazO4wOcBXSNCs2qgUINBBsfEH1+wJZ0YHI3eA9mlSB3DtKSFV7eTjOKeOnEl7y6R0EAaWJqnj3qEuoeppjJ4Wp7UIx9k/ZmvNJVzvqFS+kK3nZyR1WcNgSD29Ry+kmgdEpr5QZssxheg0+0EO4reEjTrbnzECmiagXtsxPv0jZ1kDQ8KHOuRFyGGkOZz2H01HI7o/SWuhlFHnIN104bQh91XJ/dxwlWCAKJ0+uyjXg7GPgUpRD72h7AO1Kf0+OJ4Jquiv2zGQChiug4UjJL+pnSURfX6CtHjr4Ii4IHvskLw8623ZQTSloUwxTQGMMoifqwBuMaFGZAMGUUKm2XE1R/FOBGOipw9DgXfPp4TI1SgcLAqGUgq8EUoZdZf9kC75l3fInCWMFmItEu2qI+XCKtCgwCcoR8LV/9NsSkPMC+xpq+j8NO0OU3Zfo8Z+dxtR4ZUOmv5iGiUHKCkcXkIgyBMrkRIpUMwGfKmW7q5W3UlUz7YBsA9pxwXIXkEuagm6sm+XaFIVVXTP0qbl0kXbagjaKJSjVXgILGmHp692QvsvyScqyWZdyjlMNHZjLeYdkkUwjUjImQMczt7SKYD+Nn+iQgoXAE2F8KdhVszhoL5Z0Pn0=
   - secure: pkGV+F4oWdh6zMgbwcALxmQJ/gd3MsgZQFXqaoyOYdRgt5xrwV0RtTfJqtnHlzr/tloLpTNHZCDacZFkrtb12YrUtIYqx9aM1QSZddDDYpjw91IfxxBQ7ob8l91OojXsr7O5Cr+Y5GnVgGkFmTJ6Fx7NzVpHZuBi9U3HNeISQYPlqJDMHiov3GAt06U31WrL+FrfbyAasqs9NCkdBvaDoIrzbkYZx4dCNCPWt/kosHjg4JKM4MmBhbf8438d8jRnG8bJ2Jz9FfuzT3J/nbSqH3YApznvdRtk073WuFXOpvfPUxATmGm+4q2qm+vAlxwE+s7ApOFesHG+Z+9hJpEeCaCk+OB3oGygRr0rNrlFYMfV+UyMplCfXLwdJ5WhbMw6I8tC5S0fcxKChyOrNIceGdPrs7KRtveNzBwGWtgE4Kd3Y3VV1mRCXnhV1QBorVvLKA9bcMuPx7243ET9NswLGgZ6GhUy0fcRhvcykyscJXq7EyGCE8fbrK0giTty/RVSduUdydhDfafE8IX+EkGmzf7lqi8DV+di4GSkQVxp9sb+6kreNLtcSsHu3IZYqjy3yM7VDNr6h8qmrXHn+EQYy+xmVP6pvD6HaZDvPs00utY+u4otYM4DzU9KWnylhbYHre1kFpCLK5zVB7lv9UWSb1vaBQ1tQHvgibVTXcjlR5c=
 node_js:
 - '0.10'
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
 services:
 - mongodb
 - redis
 before_install:
 - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && openssl aes-256-cbc -K $encrypted_32a52b2fc29a_key -iv $encrypted_32a52b2fc29a_iv  -in config.js.enc -out config.js -d || true'
-- $CXX --version
-script: make test-cov
+script: ./node_modules/gulp/bin/gulp.js test-cov
 after_success:
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 before_deploy:

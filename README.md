@@ -32,11 +32,10 @@ As dependências são o [io.js](https://iojs.org) v2.3.3, o [MongoDB](https://ww
 ```
 1. Instalação do `Node.js/io.js[必须]` `MongoDB[必须]` `Redis[必须]`
 2. Comece com o MongoDB e o Redis
-3. `$ make install` Instala as dependências do Nodeclub
+3. `$ npm install && sudo npm install -g gulp` Instala as dependências do Nodeclub
 4. `cp config.default.js config.js` Modificar de acordo com a necessidade o arquivo de configuração
-5. `$ make test` Para garantir que os serviços estão funcionando normalmente
-6. `$ node app.js`
-7. visite `http://localhost:3000`
+6. `$ gulp` Para executar o servidor de desenvolvimento
+7. visite `http://localhost:8080`
 8. feito!
 ```
 
@@ -45,13 +44,13 @@ As dependências são o [io.js](https://iojs.org) v2.3.3, o [MongoDB](https://ww
 Execução dos testes
 
 ```bash
-$ make test
+$ gulp test
 ```
 
 Execução de testes coverage
 
 ```bash
-$ make test-cov
+$ gulp test-cov
 ```
 
 ## Integração Contínua (opcional)
