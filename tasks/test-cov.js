@@ -15,7 +15,7 @@ module.exports = [['pre-cov'], function (done) {
   return gulp.src('test/**/*.test.js', {read: false})
     .pipe(mochaStream)
     .pipe(istanbul.writeReports({
-      reporters: ['json', 'text-summary']
+      reporters: ['lcov', 'text-summary']
     }))
     //.pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } }))
     .on('end', function(){
