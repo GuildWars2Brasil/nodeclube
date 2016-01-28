@@ -122,7 +122,7 @@
     </div>
     <div class='inner topic'>
 
-      <div class='topic_content'>
+      <div class='topic_content video_filter'>
         <%- markdown(topic.linkedContent) %>
       </div>
     </div>
@@ -173,6 +173,7 @@
 .js('/public/libs/editor/editor.js')
 .js('/public/libs/webuploader/webuploader.withoutimage.js')
 .js('/public/libs/editor/ext.js')
+.js('/public/javascripts/video_filter.js')
 .done(assets, config.site_static_host, config.mini_assets)
 %>
 <script>
