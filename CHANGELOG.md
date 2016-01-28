@@ -1,3 +1,13 @@
+<a name="3.0.3"></a>
+## [3.0.3](https://github.com/GuildWars2Brasil/nodeclube/compare/3.0.2...v3.0.3) (2016-01-28)
+
+
+### Bug Fixes
+
+* **deploy:** Usa loader-builder em vez de gulp no openshift ([04afcd4](https://github.com/GuildWars2Brasil/nodeclube/commit/04afcd4))
+
+
+
 <a name="3.0.2"></a>
 ## [3.0.2](https://github.com/GuildWars2Brasil/nodeclube/compare/3.0.1...v3.0.2) (2016-01-28)
 
