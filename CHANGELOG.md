@@ -1,3 +1,13 @@
+<a name="3.0.2"></a>
+## [3.0.2](https://github.com/GuildWars2Brasil/nodeclube/compare/3.0.1...v3.0.2) (2016-01-28)
+
+
+### Bug Fixes
+
+* **automation:** gulp e task build agora disponíveis no servidor em produção ([936854c](https://github.com/GuildWars2Brasil/nodeclube/commit/936854c))
+
+
+
 <a name="3.0.1"></a>
 ## 3.0.1 (2016-01-27)
 
