@@ -1,9 +1,7 @@
-<span class="signature">
-        “
+<div class="signature">
         <% if (user.signature) {%>
-            <%-escapeSignature(user.signature)%>
+            <%-markdown(user.signature)%>
         <%} else {%>
-            Essa pessoa nos deixou no vácuo, não preencheu nenhuma assinatura :(
+            “ Essa pessoa nos deixou no vácuo, não preencheu nenhuma assinatura :( ”
         <%}%>
-        ”
-    </span>
+    </div>
