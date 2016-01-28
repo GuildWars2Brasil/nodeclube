@@ -1,0 +1,7 @@
+<div class="signature">
+        <% if (user.signature) {%>
+            <%-markdown(user.signature)%>
+        <%} else {%>
+            “ Essa pessoa nos deixou no vácuo, não preencheu nenhuma assinatura :( ”
+        <%}%>
+    </div>

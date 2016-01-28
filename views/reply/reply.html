@@ -41,6 +41,7 @@
   </div>
   <div class='reply_content from-<%= reply.author.loginname %> video_filter'>
     <%- markdown(reply.content) %>
+    <%- partial('../user/signature', {object: reply.author, as: 'user'}) %>
   </div>
   <div class='clearfix'>
     <div class='reply2_area'>
