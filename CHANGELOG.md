@@ -1,3 +1,31 @@
+<a name="3.0.5"></a>
+## [3.0.5](https://github.com/GuildWars2Brasil/nodeclube/compare/3.0.3...v3.0.5) (2016-02-06)
+
+
+### Bug Fixes
+
+* **deprecated:** Ref chriso/validator.js/issues/486 ([6e40a88](https://github.com/GuildWars2Brasil/nodeclube/commit/6e40a88))
+* **locale:** Corrige Sites recomendados para Streaming ([040f535](https://github.com/GuildWars2Brasil/nodeclube/commit/040f535))
+* **mongodb:** Adiciona opções do mongolab para compatibilidade com o servidor de produção ([6ce16dd](https://github.com/GuildWars2Brasil/nodeclube/commit/6ce16dd))
+* **tests:** Fixa teste video_filter para não utilizar chamada html do jquery durante o teste ([8faa1df](https://github.com/GuildWars2Brasil/nodeclube/commit/8faa1df))
+* **view:** Corrige erros de sintaxe ([f846266](https://github.com/GuildWars2Brasil/nodeclube/commit/f846266))
+* **view:** Corrige erros de sintaxe ([6d2eb5e](https://github.com/GuildWars2Brasil/nodeclube/commit/6d2eb5e))
+* **view:** Define user em cada contexto ([c0f182f](https://github.com/GuildWars2Brasil/nodeclube/commit/c0f182f))
+* **view:** Define user em cada contexto ([5a88217](https://github.com/GuildWars2Brasil/nodeclube/commit/5a88217))
+* **view:** Remove assinatura do autor do tópico (ela já existe na sidebar) ([12cc2f4](https://github.com/GuildWars2Brasil/nodeclube/commit/12cc2f4))
+* **view:** Remove assinatura do autor do tópico (ela já existe na sidebar) ([bdb5d87](https://github.com/GuildWars2Brasil/nodeclube/commit/bdb5d87))
+
+### Features
+
+* **test:** Adiciona opção -t para definir o arquivo de teste ([7ec7ae3](https://github.com/GuildWars2Brasil/nodeclube/commit/7ec7ae3))
+* **tests:** Adiciona testes para o twitch.js ([1021cdd](https://github.com/GuildWars2Brasil/nodeclube/commit/1021cdd))
+* **tests:** Adiciona testes para video_filter.js ([55f153d](https://github.com/GuildWars2Brasil/nodeclube/commit/55f153d))
+* **view:** Adiciona estilo e eventos ao módulo do twitch ([49ed8e4](https://github.com/GuildWars2Brasil/nodeclube/commit/49ed8e4))
+* **view:** Adiciona suporte a markdown nas assinaturas. Resolves #40 ([3c11532](https://github.com/GuildWars2Brasil/nodeclube/commit/3c11532)), closes [#40](https://github.com/GuildWars2Brasil/nodeclube/issues/40)
+* **view:** Adiciona suporte a markdown nas assinaturas. Resolves #40 ([1c7676a](https://github.com/GuildWars2Brasil/nodeclube/commit/1c7676a)), closes [#40](https://github.com/GuildWars2Brasil/nodeclube/issues/40)
+
+
+
 <a name="3.0.4"></a>
 ## [3.0.4](https://github.com/GuildWars2Brasil/nodeclube/compare/3.0.3...v3.0.4) (2016-01-28)
 
