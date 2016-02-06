@@ -3,7 +3,13 @@ var config   = require('../config');
 var logger = require('../common/logger')
 
 mongoose.connect(config.db, {
-  server: {poolSize: 20}
+  server: {
+      poolSize: 20,
+      socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 }
+  },
+  replset: {
+      socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 }
+  }
 }, function (err) {
   if (err) {
     logger.error('connect to %s error: ', config.db, err.message);
