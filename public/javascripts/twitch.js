@@ -62,6 +62,7 @@ var goGo = function(req) {
       count++;
     }
     document.getElementById("twitch").innerHTML = array[4];
+    initActive();
   }
   else{
 
@@ -73,6 +74,17 @@ request1.onload = function(){
 };
 request2.onload = function(){
   goGo(request2);
+};
+
+var streamer = [];
+var details = [];
+
+ var initActive = function (){
+  streamer = document.getElementById('twitch').getElementsByClassName('streamer');
+  details = document.getElementById('twitch').getElementsByClassName('details');
+
+  streamer[0].classList.add('active');
+  details[0].classList.add('list');
 };
 window.onload = function(){
   request1.send();
