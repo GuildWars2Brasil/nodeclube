@@ -1,3 +1,13 @@
+<a name="3.0.5"></a>
+## [3.0.5](https://github.com/GuildWars2Brasil/nodeclube/compare/3.0.3...v3.0.5) (2016-02-06)
+
+
+### Bug Fixes
+
+* **deprecated:** Ref chriso/validator.js/issues/486 ([6e40a88](https://github.com/GuildWars2Brasil/nodeclube/commit/6e40a88))
+
+
+
 <a name="3.0.4"></a>
 ## [3.0.4](https://github.com/GuildWars2Brasil/nodeclube/compare/3.0.3...v3.0.4) (2016-01-28)
 
