@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "conventional-github-releaser": "^1.0.0",
-    "conventional-recommended-bump": "0.0.3",
+    "conventional-recommended-bump": "0.1.0",
     "coveralls": "2.11.6",
     "errorhandler": "1.4.3",
     "gulp": "^3.9.0",
