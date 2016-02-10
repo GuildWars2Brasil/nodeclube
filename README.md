@@ -3,19 +3,22 @@ Nodeclub
 
 [![build status][travis-image]][travis-url]
 [![Coverage Status][coverage-image]][coverage-url]
+[![Codacy Status][codacy-image]][codacy-url]
 [![Stories in Ready][waffle-image]][waffle-url]
 [![David deps][david-image]][david-url]
 [![node version][node-image]][node-url]
 
-[travis-image]: https://img.shields.io/travis/GuildWars2Brasil/nodeclube/master.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/GuildWars2Brasil/nodeclube/master.svg
 [travis-url]: https://travis-ci.org/GuildWars2Brasil/nodeclube
-[coverage-image]: https://img.shields.io/coveralls/GuildWars2Brasil/nodeclube.svg?style=flat-square
+[coverage-image]: https://img.shields.io/coveralls/GuildWars2Brasil/nodeclube.svg
 [coverage-url]: https://coveralls.io/github/GuildWars2Brasil/nodeclube?branch=master
+[codacy-image]: https://img.shields.io/codacy/a345687c826e4817ba54a53c5abca851.svg
+[codacy-url]: https://www.codacy.com/app/walker/nodeclube
 [waffle-image]: https://badge.waffle.io/GuildWars2Brasil/nodeclube.png?label=ready&title=Ready
 [waffle-url]: https://waffle.io/GuildWars2Brasil/nodeclube
-[david-image]: https://img.shields.io/david/GuildWars2Brasil/nodeclube.svg?style=flat-square
+[david-image]: https://img.shields.io/david/GuildWars2Brasil/nodeclube.svg
 [david-url]: https://david-dm.org/GuildWars2Brasil/nodeclube
-[node-image]: https://img.shields.io/badge/node.js-%3E=_4.2-green.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node.js-%3E=_4.2-green.svg
 [node-url]: http://nodejs.org/download/
 
 ## Introdução
