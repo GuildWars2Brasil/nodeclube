@@ -62,7 +62,7 @@
     "errorhandler": "1.4.3",
     "gulp": "^3.9.0",
     "gulp-bump": "^1.0.0",
-    "gulp-conventional-changelog": "^0.7.0",
+    "gulp-conventional-changelog": "^1.0.1",
     "gulp-git": "^1.6.1",
     "gulp-install": "^0.6.0",
     "gulp-istanbul": "^0.10.3",
