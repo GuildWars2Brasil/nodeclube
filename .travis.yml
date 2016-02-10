@@ -13,6 +13,7 @@ before_install:
 script: ./node_modules/gulp/bin/gulp.js test-cov
 after_success:
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+- ./node_modules/gulp/bin/gulp.js codacy
 before_deploy:
 - gem install rhc
 - yes | rhc setup --server openshift.redhat.com -l $OPENSHIFT_USER -p $OPENSHIFT_PASS
