@@ -55,8 +55,6 @@
     channelUrl = function (obj) {
       return obj.channel.url;
     },
-    url1 = buildurl("pt", 5),
-    url2 = buildurl("en", 5),
     request1 = new XMLHttpRequest(),
     request2 = new XMLHttpRequest(),
     initActive = function () {
@@ -70,7 +68,7 @@
       }
     },
     goGo = function (req) {
-      req = req.target;
+      req = this || req.target;
       if (req.status >= 200 && req.status < 400) {
         var data = JSON.parse(req.responseText),
           twitch = document.getElementById("twitch").getElementsByTagName("ul")[0];
@@ -80,7 +78,6 @@
           var streamer = document.createElement("li"),
             details = document.createElement("li"),
             details_inner = document.createElement("ul");
-
           streamer.classList.add("streamer");
           streamer.setAttribute("onclick", "dodajAktywne(this)");
           streamer.appendChild(logo(stream));
@@ -94,24 +91,22 @@
 
           twitch.appendChild(details);
         });
+
         initActive();
       }
     };
 
-  request1.open("GET", url1, true);
-  request2.open("GET", url2, true);
+  request1.open("GET", buildurl("pt", 5), true);
+  request2.open("GET", buildurl("en", 5), true);
 
   request1.onload = goGo;
   request2.onload = goGo;
 
   window.docReady(function () {
     document.getElementById("twitch").innerHTML = "<ul>Carregando...</ul>";
-  });
-
-  window.onload = function () {
     request1.send();
     request2.send();
-  };
+  });
 
   // Click events
   window.dodajAktywne = function (elem) {
