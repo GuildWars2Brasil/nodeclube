@@ -5,24 +5,52 @@
     buildurl = function (lang, limit) {
       return "https://api.twitch.tv/kraken/streams?game=Guild+Wars+2&language=" + lang + "&limit=" + limit;
     },
-    logo = function (obj) {
-      return "<span class=\"logo\" style=\"background-image: url(" + obj.channel.logo + ");\"</span>";
-    },
-    nam = function (obj) {
-      return "<span class=\"name\">" + obj.channel.display_name + "</span>";
+    name = function (obj) {
+      var name = document.createElement("span");
+      name.classList.add("name");
+      name.innerHTML = obj.channel.display_name;
+      return name;
     },
     flag = function (obj) {
-      return "<span class=\"flag " + obj.channel.language + "\"></span></li>";
+      var flag = document.createElement("span");
+      flag.classList.add("flag");
+      flag.classList.add(obj.channel.language);
+      return flag;
     },
-    views = function (obj) {
-      return "<ul><li>" + obj.viewers + " assistindo: <br>";
+    logo = function (obj) {
+      var logo = document.createElement("span");
+      logo.classList.add("logo");
+      logo.setAttribute("style", "background-image: url(" + obj.channel.logo + ")");
+      logo.appendChild(name(obj));
+      logo.appendChild(flag(obj));
+      return logo;
     },
     title = function (obj) {
-      return "<strong>" + obj.channel.status + "</strong></li>";
+      var title = document.createElement("strong");
+      title.innerHTML = obj.channel.status;
+      return title;
+    },
+    views = function (obj) {
+      var views = document.createElement("li"),
+        br = document.createElement("br");
+      views.innerHTML = obj.viewers + " assistindo: ";
+      views.appendChild(br);
+      views.appendChild(title(obj));
+      return views;
     },
     image = function (obj, l) {
-      return "<li><a href=\"" + l + "\" class=\"preview\" target=\"_blank\">" + "<img src=\"" +
-        obj.preview.medium + "\"></a></li>";
+      var li = document.createElement("li"),
+        link = document.createElement("a"),
+        img = document.createElement("img");
+      img.src = obj.preview.medium;
+
+      link.href = l;
+      link.classList.add("preview");
+      link.target = "_blank";
+      link.appendChild(img);
+
+      li.appendChild(link);
+      return li;
     },
     channelUrl = function (obj) {
       return obj.channel.url;
@@ -45,24 +73,26 @@
       req = req.target;
       if (req.status >= 200 && req.status < 400) {
         var data = JSON.parse(req.responseText),
-          twitch = document.getElementById("twitch");
-        twitch.getElementsByTagName("ul")[0].innerHTML = "";
+          twitch = document.getElementById("twitch").getElementsByTagName("ul")[0];
+
+        twitch.innerHTML = "";
         data.streams.forEach(function (stream) {
-          var streamer = document.createElement('li'),
-            details = document.createElement('li');
+          var streamer = document.createElement("li"),
+            details = document.createElement("li"),
+            details_inner = document.createElement("ul");
 
           streamer.classList.add("streamer");
           streamer.setAttribute("onclick", "dodajAktywne(this)");
-          streamer.innerHTML = logo(stream);
-          streamer.innerHTML += nam(stream);
-          streamer.innerHTML += flag(stream);
-          twitch.getElementsByTagName("ul")[0].appendChild(streamer);
+          streamer.appendChild(logo(stream));
+
+          twitch.appendChild(streamer);
 
           details.classList.add("details");
-          details.innerHTML += views(stream);
-          details.innerHTML += title(stream);
-          details.innerHTML += image(stream, channelUrl(stream));
-          twitch.getElementsByTagName("ul")[0].appendChild(details);
+          details_inner.appendChild(views(stream));
+          details_inner.appendChild(image(stream, channelUrl(stream)));
+          details.appendChild(details_inner);
+
+          twitch.appendChild(details);
         });
         initActive();
       }
