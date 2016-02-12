@@ -81,7 +81,7 @@
     "pedding": "1.0.0",
     "run-sequence": "^1.1.5",
     "should": "8.2.1",
-    "supertest": "1.1.0",
+    "supertest": "1.2.0",
     "yargs": "^3.32.0"
   },
   "scripts": {
