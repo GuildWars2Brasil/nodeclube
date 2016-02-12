@@ -59,9 +59,10 @@
     request2 = new XMLHttpRequest(),
     initActive = function () {
       var streamer = [],
-        details = [];
-      streamer = document.getElementById("twitch").getElementsByClassName("streamer");
-      details = document.getElementById("twitch").getElementsByClassName("details");
+        details = [],
+        twitch = document.getElementById("twitch");
+      streamer = twitch.getElementsByClassName("streamer");
+      details = twitch.getElementsByClassName("details");
       if (streamer.length > 0) {
         streamer[0].classList.add("active");
         details[0].classList.add("list");
