@@ -30,7 +30,7 @@
     "jpush-sdk": "3.2.1",
     "loader": "2.0.0",
     "loader-builder": "1.2.1",
-    "lodash": "4.5.0",
+    "lodash": "4.5.1",
     "log4js": "^0.6.29",
     "markdown-it": "6.0.0",
     "memory-cache": "0.1.4",
@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "conventional-github-releaser": "^1.0.0",
-    "conventional-recommended-bump": "0.1.0",
+    "conventional-recommended-bump": "0.1.1",
     "coveralls": "2.11.6",
     "errorhandler": "1.4.3",
     "gulp": "^3.9.0",
