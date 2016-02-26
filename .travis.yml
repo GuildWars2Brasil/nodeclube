@@ -10,6 +10,7 @@ node_js:
   - "5"
   - "4"
   - "0.12"
+  - "0.10"
 
 addons:
   apt:
@@ -49,4 +50,4 @@ deploy:
   on:
     repo: GuildWars2Brasil/nodeclube
     branch: master
-    node: '0.12'
+    node: '0.10'
