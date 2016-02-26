@@ -33,3 +33,5 @@ deploy:
   domain: guildwars2brasil
   on:
     repo: GuildWars2Brasil/nodeclube
+    branch: master
+    node: '0.12'
