@@ -20,6 +20,7 @@ services:
 - redis
 before_install:
 - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && openssl aes-256-cbc -K $encrypted_32a52b2fc29a_key -iv $encrypted_32a52b2fc29a_iv  -in config.js.enc -out config.js -d || true'
+- $CXX --version
 script: ./node_modules/gulp/bin/gulp.js test-cov
 after_success:
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
