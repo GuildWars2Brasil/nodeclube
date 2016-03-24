@@ -15,7 +15,7 @@ Nodeclub
 [waffle-url]: https://waffle.io/GuildWars2Brasil/nodeclube
 [david-image]: https://img.shields.io/david/GuildWars2Brasil/nodeclube.svg?style=flat-square
 [david-url]: https://david-dm.org/GuildWars2Brasil/nodeclube
-[node-image]: https://img.shields.io/node/v/gh-badges.svg
+[node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 
 ## Introdução
