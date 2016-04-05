@@ -20,6 +20,8 @@ Nodeclub
 
 ## Introdução
 
+[![Join the chat at https://gitter.im/GuildWars2Brasil/nodeclube](https://badges.gitter.im/GuildWars2Brasil/nodeclube.svg)](https://gitter.im/GuildWars2Brasil/nodeclube?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 O Nodeclub usa o **Node.js** e o **MongoDB** e é um sistema desenvolvido pela comunidade, com uma interface elegante, compacta, rápida e rica em recursos.
 Este é um fork do projeto principal [Nodeclub](https://github.com/cnodejs/nodeclub/), da comunidade técnica chinesa do Node.js [CNode(http://cnodejs.org)](http://cnodejs.org), você também pode usá-lo para construir suas próprias comunidades.
 
