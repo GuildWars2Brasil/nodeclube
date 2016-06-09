@@ -54,7 +54,7 @@
     "validator": "5.1.0",
     "xmlbuilder": "8.2.2",
     "xss": "0.2.10",
-    "loader-connect": "1.0.0",
+    "loader-connect": "1.0.1",
     "errorhandler": "1.4.3"
   },
   "devDependencies": {
