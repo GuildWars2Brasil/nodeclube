@@ -51,7 +51,7 @@
     "response-time": "2.3.1",
     "superagent": "1.8.3",
     "utility": "1.6.0",
-    "validator": "5.1.0",
+    "validator": "5.2.0",
     "xmlbuilder": "8.2.2",
     "xss": "0.2.10",
     "loader-connect": "1.0.0",
