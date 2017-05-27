@@ -5,8 +5,8 @@ export NODE_ENV="production"
 cd $OPENSHIFT_REPO_DIR
 
 # Decrypt
-if [ -n "$encrypted_32a52b2fc29a_key" ]; then
-  openssl aes-256-cbc -K $encrypted_32a52b2fc29a_key -iv $encrypted_32a52b2fc29a_iv  -in config.js.enc -out config.js -d
+if [ -n "$encrypted_34e43ea8130f_key" ]; then
+  openssl aes-256-cbc -K $encrypted_34e43ea8130f_key -iv $encrypted_34e43ea8130f_iv  -in config.js.enc -out config.js -d
 else
   echo "WARNING: config.js.enc não pôde ser descriptografado";
 fi
