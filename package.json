@@ -87,6 +87,7 @@
     "yargs": "^4.1.0"
   },
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "start": "app.js"
   }
 }
