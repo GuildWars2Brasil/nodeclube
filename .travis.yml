@@ -25,6 +25,9 @@ before_install:
 script: "./node_modules/gulp/bin/gulp.js test-cov"
 after_success:
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+before_deploy:
+- echo 'production = true' >> $OPENSHIFT_REPO_DIR/.npmrc
+- ./node_modules/loader-builder/bin/builder views .
 deploy:
   provider: heroku
   api_key:
