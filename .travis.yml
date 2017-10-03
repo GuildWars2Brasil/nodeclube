@@ -35,3 +35,5 @@ deploy:
   app: aqueous-ravine-20412
   on:
     repo: GuildWars2Brasil/nodeclube
+    branch: master
+    node: '5'
