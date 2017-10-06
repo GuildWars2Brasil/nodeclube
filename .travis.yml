@@ -32,8 +32,9 @@ deploy:
     secure: srJbtQREl+oT204DTbNavgmOcTjFHVAVFvA2cozp4+8pRGsgNbAxLwt3MSK1u1kJharHU+0mZGGcjFZJ0aWtjqAOAnApgu3j6M3G8Ry5DIFPZ2aGKGXDq025JDFRFRKc+e2G7W/JUqxFGnupOf4AY9FbixKhrjtUwEgaYoJEm7nWGtULEsZrSzm/lt+qkGbMcGZmXcXO3Oexa4K3JbdBs9Y/bhomck2bQTrqU0Gfr6VLQw1dUkn7+p8lj7e4BBfSdEDwtrxToxHuQJlwwRp1ZflvXznLB9ID31a7CHwb6em08nuiuW08X3OCCP1vlaY692qMf9LJafVGQ72h01YamH0Z/4DiyJGK4sEEDU2dXEa7TG+Snv+bSSkc+x+u3MvrFxJOxJ7AVR7HrihPc762zNmnZILb3O8wzd1DqZMy6SCJ7/6og+tHSy62taMOYwhd+ZiXNoYOcN9GJhHnlbJ9braFF8t58dgvqthN3FQJJ24tphKzFH3gfsAWcHbp0GRJbx6nMrLkjTXl7d/wHRmtjzwZCT+N9ksKwa7CaN7YJduGPALCJJCDN6bpkZqtpznYlNuLOpvE5lT1ZeG9kDifb/Ed1CruIvDfrz2C0Kzc0FDfu0KeSooWmsvPKCYjNaFK7PvtwHRp9Nugtu8hprnTLLJmJh4xZa+5x3kQjrY+td0=
   app: aqueous-ravine-20412
   skip_cleanup: true
-  run: 'export OPENSHIFT_NODEJS_PORT=$PORT'
-  run: 'export OPENSHIFT_NODEJS_IP=0.0.0.0'
+  run:
+    - 'export OPENSHIFT_NODEJS_PORT=$PORT'
+    - 'export OPENSHIFT_NODEJS_IP=0.0.0.0'
   on:
     repo: GuildWars2Brasil/nodeclube
     branch: master
