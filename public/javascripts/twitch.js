@@ -1,4 +1,4 @@
-var gw2api = 'https://api.twitch.tv/kraken/streams?game=Guild+Wars+2';
+var gw2api = 'https://api.twitch.tv/kraken/streams?client_id=hma1mel7z2nauq5tkdhzag1n0ozkmy&game=Guild+Wars+2';
 var gw2api_limit = '&limit=5';
 var world = gw2api + gw2api_limit;
 var br = gw2api + '&language=pt' + gw2api_limit;
